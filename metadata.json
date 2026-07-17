@@ -1,0 +1,6 @@
+{
+  "name": "Films By Hiimii",
+  "description": "Premium luxury wedding photography and videography brand based in Pakistan by Hamza Shaikh.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

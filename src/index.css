@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --color-gold-50: #faf7f0;
+  --color-gold-100: #f4edd9;
+  --color-gold-200: #e8dbb3;
+  --color-gold-300: #dac585;
+  --color-gold-400: #caab5d;
+  --color-gold-500: #D4AF71; /* Accent Gold */
+  --color-gold-600: #C9A84C; /* Primary Gold Brand Color */
+  --color-gold-700: #a78434;
+  --color-gold-800: #856424;
+  --color-gold-900: #5c4318;
+}
+
+/* Global Reset & Base Enhancements */
+html {
+  scroll-behavior: smooth;
+  background-color: #060504;
+  color: #F5EEE6;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0b09;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #252019;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C9A84C;
+}
+
+/* Interactive Glass Elements */
+.glassmorphic {
+  background: rgba(14, 11, 8, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(201, 168, 76, 0.12);
+}
+
+.glassmorphic-card {
+  background: rgba(15, 12, 9, 0.6);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glassmorphic-card:hover {
+  background: rgba(22, 17, 12, 0.75);
+  border-color: rgba(201, 168, 76, 0.45);
+  box-shadow: 0 12px 40px -10px rgba(201, 168, 76, 0.12);
+  transform: translateY(-4px);
+}
+
+/* Custom Animations */
+@keyframes goldPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(201, 168, 76, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(201, 168, 76, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(201, 168, 76, 0);
+  }
+}
+
+.animate-gold-pulse {
+  animation: goldPulse 2s infinite;
+}
+
+/* Custom particles / bokeh styling */
+.bokeh-circle {
+  border-radius: 50%;
+  filter: blur(80px);
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Reveal transition helpers */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
