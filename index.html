@@ -85,6 +85,19 @@
         padding: 0;
       }
 
+      html {
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+      }
+
       html, body {
         overflow-x: hidden !important;
         width: 100%;
@@ -92,7 +105,8 @@
         color: var(--text-primary);
         font-family: var(--font-sans);
         -webkit-font-smoothing: antialiased;
-        text-rendering: optimizeSpeed;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
       }
 
       body {
@@ -1528,6 +1542,13 @@
         padding: 24px;
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
+        opacity: 0;
+        transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .instagram-modal.show {
+        display: flex;
+        opacity: 1;
       }
 
       .instagram-modal-content {
@@ -1541,6 +1562,12 @@
         aspect-ratio: 16 / 10;
         position: relative;
         box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+        transform: scale(0.96);
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .instagram-modal.show .instagram-modal-content {
+        transform: scale(1);
       }
       body.light-theme .instagram-modal-content {
         background: #ffffff;
@@ -1866,11 +1893,14 @@
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+        will-change: transform, box-shadow;
+        backface-visibility: hidden;
+        transform: translateZ(0);
       }
 
       .package-card:hover {
-        transform: translateY(-6px);
+        transform: translateY(-6px) translateZ(0);
         box-shadow: 0 16px 36px rgba(201, 168, 76, 0.16);
         border-color: rgba(201, 168, 76, 0.45);
       }
@@ -3470,6 +3500,10 @@
         font-size: 15px;
         font-weight: 700;
         color: var(--accent-gold);
+        display: inline-block;
+        transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: transform;
+        backface-visibility: hidden;
       }
 
       /* Add-ons Checklist with Tickable Checkboxes */
@@ -7296,8 +7330,8 @@ Whatsapp or Call : +92 347 2790275</div>
               <span class="show-all-link" onclick="toggleDeliverables(this)" data-expanded="false">Show all &rarr;</span>
             </ul>
 
-            <a href="https://wa.me/923163870862?text=Hi%20Hamza%2C%20I'm%20interested%20in%201%20Day%20Package%20-%20Standard%20Tier" target="_blank" class="tier-content book-btn-styled" data-tier="standard">Book This Package &rarr;</a>
-            <a href="https://wa.me/923163870862?text=Hi%20Hamza%2C%20I'm%20interested%20in%201%20Day%20Package%20-%20Premium%20Tier" target="_blank" class="tier-content book-btn-styled" data-tier="premium">Book This Package &rarr;</a>
+            <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%201%20Day%20Package%20(Standard%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="standard">Book This Package &rarr;</a>
+            <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%201%20Day%20Package%20(Premium%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="premium">Book This Package &rarr;</a>
           </div>
 
           <!-- PACKAGE 2: 2 Day Package -->
@@ -7352,8 +7386,8 @@ Whatsapp or Call : +92 347 2790275</div>
               <span class="show-all-link" onclick="toggleDeliverables(this)" data-expanded="false">Show all &rarr;</span>
             </ul>
 
-            <a href="https://wa.me/923163870862?text=Hi%20Hamza%2C%20I'm%20interested%20in%202%20Day%20Package%20-%20Standard%20Tier" target="_blank" class="tier-content book-btn-styled" data-tier="standard">Book This Package &rarr;</a>
-            <a href="https://wa.me/923163870862?text=Hi%20Hamza%2C%20I'm%20interested%20in%202%20Day%20Package%20-%20Premium%20Tier" target="_blank" class="tier-content book-btn-styled" data-tier="premium">Book This Package &rarr;</a>
+            <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%202%20Day%20Package%20(Standard%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="standard">Book This Package &rarr;</a>
+            <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%202%20Day%20Package%20(Premium%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="premium">Book This Package &rarr;</a>
           </div>
 
           <!-- PACKAGE 3: Full Wedding Package -->
@@ -7414,8 +7448,8 @@ Whatsapp or Call : +92 347 2790275</div>
               <span class="show-all-link" onclick="toggleDeliverables(this)" data-expanded="false">Show all &rarr;</span>
             </ul>
 
-            <a href="https://wa.me/923163870862?text=Hi%20Hamza%2C%20I'm%20interested%20in%20Full%20Wedding%20Package%20-%20Standard%20Tier" target="_blank" class="tier-content book-btn-styled" data-tier="standard">Book This Package &rarr;</a>
-            <a href="https://wa.me/923163870862?text=Hi%20Hamza%2C%20I'm%20interested%20in%20Full%20Wedding%20Package%20-%20Premium%20Tier" target="_blank" class="tier-content book-btn-styled" data-tier="premium">Book This Package &rarr;</a>
+            <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%20Full%20Wedding%20Package%20(Standard%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="standard">Book This Package &rarr;</a>
+            <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%20Full%20Wedding%20Package%20(Premium%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="premium">Book This Package &rarr;</a>
           </div>
 
           <!-- PACKAGE 4: 3 Day Package -->
@@ -7473,8 +7507,8 @@ Whatsapp or Call : +92 347 2790275</div>
               <span class="show-all-link" onclick="toggleDeliverables(this)" data-expanded="false">Show all &rarr;</span>
             </ul>
 
-            <a href="https://wa.me/923163870862?text=Hi%20Hamza%2C%20I'm%20interested%20in%203%20Day%20Package%20-%20Standard%20Tier" target="_blank" class="tier-content book-btn-styled" data-tier="standard">Book This Package &rarr;</a>
-            <a href="https://wa.me/923163870862?text=Hi%20Hamza%2C%20I'm%20interested%20in%203%20Day%20Package%20-%20Premium%20Tier" target="_blank" class="tier-content book-btn-styled" data-tier="premium">Book This Package &rarr;</a>
+            <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%203%20Day%20Package%20(Standard%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="standard">Book This Package &rarr;</a>
+            <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%203%20Day%20Package%20(Premium%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="premium">Book This Package &rarr;</a>
           </div>
 
           <!-- PACKAGE 5: 4 Day Package -->
@@ -7533,8 +7567,8 @@ Whatsapp or Call : +92 347 2790275</div>
               <span class="show-all-link" onclick="toggleDeliverables(this)" data-expanded="false">Show all &rarr;</span>
             </ul>
 
-            <a href="https://wa.me/923163870862?text=Hi%20Hamza%2C%20I'm%20interested%20in%204%20Day%20Package%20-%20Standard%20Tier" target="_blank" class="tier-content book-btn-styled" data-tier="standard">Book This Package &rarr;</a>
-            <a href="https://wa.me/923163870862?text=Hi%20Hamza%2C%20I'm%20interested%20in%204%20Day%20Package%20-%20Premium%20Tier" target="_blank" class="tier-content book-btn-styled" data-tier="premium">Book This Package &rarr;</a>
+            <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%204%20Day%20Package%20(Standard%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="standard">Book This Package &rarr;</a>
+            <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%204%20Day%20Package%20(Premium%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="premium">Book This Package &rarr;</a>
           </div>
 
           <!-- PACKAGE 6: Birthday Package -->
@@ -7587,8 +7621,8 @@ Whatsapp or Call : +92 347 2790275</div>
               <span class="show-all-link" onclick="toggleDeliverables(this)" data-expanded="false">Show all &rarr;</span>
             </ul>
 
-            <a href="https://wa.me/923163870862?text=Hi%20Hamza%2C%20I'm%20interested%20in%20Birthday%20Package%20-%20Standard%20Tier" target="_blank" class="tier-content book-btn-styled" data-tier="standard">Book This Package &rarr;</a>
-            <a href="https://wa.me/923163870862?text=Hi%20Hamza%2C%20I'm%20interested%20in%20Birthday%20Package%20-%20Premium%20Tier" target="_blank" class="tier-content book-btn-styled" data-tier="premium">Book This Package &rarr;</a>
+            <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%20Birthday%20Package%20(Standard%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="standard">Book This Package &rarr;</a>
+            <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%20Birthday%20Package%20(Premium%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="premium">Book This Package &rarr;</a>
           </div>
 
           <!-- PACKAGE 7: Academic, Campus & Student Events -->
@@ -7642,8 +7676,8 @@ Whatsapp or Call : +92 347 2790275</div>
               <span class="show-all-link" onclick="toggleDeliverables(this)" data-expanded="false">Show all &rarr;</span>
             </ul>
 
-            <a href="https://wa.me/923163870862?text=Hi%20Hamza%2C%20I'm%20interested%20in%20Campus%20%26%20Institutional%20Events%20Package%20-%20Standard%20Tier" target="_blank" class="tier-content book-btn-styled" data-tier="standard">Book This Package &rarr;</a>
-            <a href="https://wa.me/923163870862?text=Hi%20Hamza%2C%20I'm%20interested%20in%20Campus%20%26%20Institutional%20Events%20Package%20-%20Premium%20Tier" target="_blank" class="tier-content book-btn-styled" data-tier="premium">Book This Package &rarr;</a>
+            <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%20Campus%20%26%20Institutional%20Events%20Package%20(Standard%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="standard">Book This Package &rarr;</a>
+            <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%20Campus%20%26%20Institutional%20Events%20Package%20(Premium%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="premium">Book This Package &rarr;</a>
           </div>
 
           <!-- EXCLUSIVE TEASER: 2026-2027 Season Deals Card -->
@@ -8299,7 +8333,7 @@ Whatsapp or Call : +92 347 2790275</div>
               </div>
             </div>
 
-            <!-- Coupon Code Section "FBH26-27" -->
+            <!-- Coupon Code Section (Confidential VIP promo) -->
             <div class="builder-coupon-card" id="builder-coupon-card">
               <div class="coupon-card-header">
                 <div class="coupon-card-title">
@@ -8310,16 +8344,8 @@ Whatsapp or Call : +92 347 2790275</div>
               </div>
 
               <div class="coupon-input-row">
-                <input type="text" id="builder-coupon-input" class="form-input coupon-text-input" placeholder="Enter coupon code (e.g. FBH26-27)" autocomplete="off">
+                <input type="text" id="builder-coupon-input" class="form-input coupon-text-input" placeholder="Enter VIP promo code" autocomplete="off">
                 <button type="button" class="btn-apply-coupon" id="btn-apply-coupon" onclick="applyBuilderCoupon()">Apply Code</button>
-              </div>
-
-              <div class="quick-coupon-row">
-                <span class="quick-coupon-hint">Exclusive Season Coupon:</span>
-                <button type="button" class="quick-coupon-pill" onclick="quickFillCoupon('FBH26-27')">
-                  <span>FBH26-27</span>
-                  <span style="font-size: 10.5px; opacity: 0.85;">(Tap to Apply 20% OFF)</span>
-                </button>
               </div>
 
               <div id="coupon-feedback-msg" class="coupon-feedback-msg" style="display: none;"></div>
@@ -8337,7 +8363,7 @@ Whatsapp or Call : +92 347 2790275</div>
             <select id="aerial-luxury"><option value="None" selected>None</option></select>
             <select id="album-choice"><option value="None" selected>None</option></select>
             <input type="range" id="budget-slider" value="90000">
-            <input type="text" id="coupon-code-input" value="FBH26-27">
+            <input type="text" id="coupon-code-input" value="">
           </div>
 
           <!-- STEP 6: LIVE OVERVIEW & SUBMIT TO WHATSAPP -->
@@ -9317,7 +9343,13 @@ Whatsapp or Call : +92 347 2790275</div>
         newCustomBuilderState.daysData[dayIdx][role] = current;
 
         const countEl = document.getElementById(role === 'photographers' ? `count-photo-${dayIdx}` : `count-video-${dayIdx}`);
-        if (countEl) countEl.innerText = current;
+        if (countEl) {
+          countEl.innerText = current;
+          countEl.style.transform = 'scale(1.22)';
+          setTimeout(() => {
+            countEl.style.transform = 'scale(1)';
+          }, 130);
+        }
 
         updateNewBuilderSummary();
       }
@@ -9418,7 +9450,7 @@ Whatsapp or Call : +92 347 2790275</div>
         updateNewBuilderSummary();
       }
 
-      // Promo Coupon "FBH26-27" Code Logic (20% OFF)
+      // Secret VIP Promo Coupon "FBH26-27" Code Logic (20% OFF for Special Clients)
       function applyBuilderCoupon() {
         const input = document.getElementById('builder-coupon-input');
         const rawCode = input ? input.value.trim() : '';
@@ -9427,7 +9459,7 @@ Whatsapp or Call : +92 347 2790275</div>
         const badgeEl = document.getElementById('coupon-applied-badge');
         const cardEl = document.getElementById('builder-coupon-card');
 
-        // Valid codes: FBH26-27 or FBH2627 or HIIMII20
+        // Secret VIP code: FBH26-27 (or FBH2627 / HIIMII20)
         if (normCode === 'FBH26-27' || normCode === 'FBH2627' || normCode === 'HIIMII20') {
           newCustomBuilderState.appliedCoupon.code = 'FBH26-27';
           newCustomBuilderState.appliedCoupon.discountPercent = 20;
@@ -9438,7 +9470,7 @@ Whatsapp or Call : +92 347 2790275</div>
           if (feedbackEl) {
             feedbackEl.style.display = 'block';
             feedbackEl.style.color = '#10B981';
-            feedbackEl.innerHTML = '✨ <strong>Coupon FBH26-27 Applied!</strong> You unlocked an exclusive <strong>20% discount</strong> on your proposed budget.';
+            feedbackEl.innerHTML = '✨ <strong>VIP Promo Code Applied!</strong> You unlocked an exclusive <strong>20% discount</strong> on your proposed budget.';
           }
         } else if (!normCode) {
           newCustomBuilderState.appliedCoupon.code = '';
@@ -9448,7 +9480,7 @@ Whatsapp or Call : +92 347 2790275</div>
           if (feedbackEl) {
             feedbackEl.style.display = 'block';
             feedbackEl.style.color = 'var(--text-secondary)';
-            feedbackEl.innerHTML = 'Coupon removed. Enter <strong>FBH26-27</strong> for 20% off.';
+            feedbackEl.innerHTML = 'Coupon removed.';
           }
         } else {
           newCustomBuilderState.appliedCoupon.code = '';
@@ -9458,17 +9490,11 @@ Whatsapp or Call : +92 347 2790275</div>
           if (feedbackEl) {
             feedbackEl.style.display = 'block';
             feedbackEl.style.color = '#FE5F55';
-            feedbackEl.innerHTML = '❌ <strong>Invalid Coupon Code.</strong> Enter active seasonal code <strong>FBH26-27</strong> to claim 20% discount.';
+            feedbackEl.innerHTML = '❌ <strong>Invalid Promo Code.</strong> This code is reserved for special VIP clients.';
           }
         }
 
         updateNewBuilderSummary();
-      }
-
-      function quickFillCoupon(code) {
-        const input = document.getElementById('builder-coupon-input');
-        if (input) input.value = code;
-        applyBuilderCoupon();
       }
 
       function updateNewBuilderSummary() {
@@ -9620,7 +9646,7 @@ Whatsapp or Call : +92 347 2790275</div>
           couponSummaryText = `${newCustomBuilderState.appliedCoupon.code} — 20% OFF APPLIED (Saved PKR ${discountAmt.toLocaleString()})`;
         }
 
-        // Build days & dates breakdown text
+        // Build days & dates breakdown text with clean bullet list
         let daysBreakdown = '';
         newCustomBuilderState.daysData.forEach((d, idx) => {
           const name = d.name || `Day ${idx + 1}`;
@@ -9629,10 +9655,10 @@ Whatsapp or Call : +92 347 2790275</div>
             const parsed = new Date(d.date);
             dateStr = !isNaN(parsed.getTime()) ? parsed.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : d.date;
           }
-          daysBreakdown += `- Day ${idx + 1} (${name}) [Date: ${dateStr}]: ${d.photographers} Photographer(s) + ${d.videographers} Cameraman/Videographer(s)\n`;
+          daysBreakdown += `• *Day ${idx + 1} (${name})* [${dateStr}]: ${d.photographers} Photographer(s) + ${d.videographers} Videographer(s)\n`;
         });
 
-        // Build active add-ons list
+        // Build active add-ons list cleanly
         const addonLabels = {
           drone: 'Pro 4K Drone Aerial Coverage (+PKR 15,000)',
           album1: '1 Luxury Hardcopy Printed Album (+PKR 20,000)',
@@ -9645,34 +9671,39 @@ Whatsapp or Call : +92 347 2790275</div>
           softpics: 'Color-Graded Soft Pics Drive Link (Included)'
         };
 
-        const activeAddons = Object.keys(newCustomBuilderState.addons)
+        const activeAddonList = Object.keys(newCustomBuilderState.addons)
           .filter(k => newCustomBuilderState.addons[k])
-          .map(k => addonLabels[k] || k);
-        const addonsText = activeAddons.length > 0 ? activeAddons.join(', ') : 'None selected';
+          .map(k => `• ${addonLabels[k] || k}`);
+        const addonsFormatted = activeAddonList.length > 0 ? activeAddonList.join('\n') : '• None selected';
 
-        const waMessage = `✨ BESPOKE EVENT INQUIRY — FILMS BY HIIMII
-----------------------------------------
-📸 Selected Package: CUSTOM PACKAGE (BY CLIENT)
-💸 Client Proposed Budget: ${budgetSummaryText}
-🎟️ Active Promo Coupon: ${couponSummaryText}
+        let promoLine = '';
+        if (newCustomBuilderState.appliedCoupon.discountPercent > 0) {
+          promoLine = `\n• *VIP Promo Coupon:* ${couponSummaryText}`;
+        }
 
-👤 CLIENT DETAILS:
-- Name: ${clientName}
-- Event Type: ${eventType}
-- Duration: ${daysCount} Day${daysCount > 1 ? 's' : ''}
+        const waMessage = `Assalam-o-Alaikum Hamza,
 
-🗓️ EVENT-WISE DATES & CREW REQUIREMENTS:
+My name is *${clientName}*. I visited your website (Films By Hiimii) and created a custom ${daysCount}-day package quote for our upcoming ${eventType}. I would like to check your availability and discuss the booking.
+
+*BESPOKE PACKAGE DETAILS:*
+• *Client Name:* ${clientName}
+• *Event Type:* ${eventType}
+• *Total Duration:* ${daysCount} Day${daysCount > 1 ? 's' : ''}
+• *Proposed Budget:* ${budgetSummaryText}${promoLine}
+
+*EVENT SCHEDULE & CREW:*
 ${daysBreakdown.trim()}
 
-🎁 SELECTED ADD-ONS:
-- ${addonsText}
+*SELECTED ADD-ONS & DELIVERABLES:*
+${addonsFormatted}
 
-📝 SPECIAL REQUIREMENTS / VENUE:
-- ${notes ? notes : 'Please check date availability and confirm slot.'}
+*VENUE & SPECIAL INSTRUCTIONS:*
+• ${notes ? notes : 'Please check date availability and confirm slot.'}
 
-----------------------------------------
-We would love to book this custom package with Hamza.
-----------------------------------------`;
+We would be delighted to have Hamza and the Films By Hiimii creative team capture our event. Please let me know your availability and how we can finalize the booking.
+
+Warm regards,
+*${clientName}*`;
 
         if (window.Tracker) {
           window.Tracker.track('custom_package_submitted', {
@@ -10130,10 +10161,12 @@ We would love to book this custom package with Hamza.
 
         const modal = document.getElementById('booking-modal');
         modal.style.display = 'flex';
-        // Allow rendering then apply class to animate in
-        setTimeout(() => {
-          modal.classList.add('show');
-        }, 10);
+        // Double requestAnimationFrame ensures browser layout paint prior to transition
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            modal.classList.add('show');
+          });
+        });
       }
 
       function toggleModalCustomBudget(value) {
@@ -10217,22 +10250,24 @@ We would love to book this custom package with Hamza.
           });
         }
 
-        // Construct customized majestic WhatsApp text message concluding with "We want to book this package."
-        const finalMessage = `✨ NEW LUXURY BOOKING REQUEST
-----------------------------------------
-📸 Selected Package: ${selectedPackageData.name} ${selectedPackageData.tier ? '(' + selectedPackageData.tier + ')' : ''}
-💰 Package Price: ${selectedPackageData.price}
+        // Construct professional WhatsApp message to Hamza with client name and package details
+        const finalMessage = `Assalam-o-Alaikum Hamza,
 
-👤 CLIENT DETAILS:
-- Name: ${clientName}
-- Contact Number: ${clientPhone ? clientPhone : 'Not Provided'}
-- Intended Date: ${clientDate}
-- Budget Level: ${clientBudget}
-- Special Notes / Requirements: ${clientNotes ? clientNotes : 'None clarified yet'}
+My name is *${clientName}*. I am contacting you through the Films By Hiimii website to inquire about booking the *${selectedPackageData.name}*${selectedPackageData.tier ? ' (*' + selectedPackageData.tier + '*)' : ''}.
 
-----------------------------------------
-We want to book this package.
-----------------------------------------`;
+*PACKAGE BOOKING INQUIRY:*
+• *Client Name:* ${clientName}
+• *Contact Number:* ${clientPhone ? clientPhone : 'Not Provided'}
+• *Selected Package:* ${selectedPackageData.name}${selectedPackageData.tier ? ' (' + selectedPackageData.tier + ')' : ''}
+• *Package Price:* ${selectedPackageData.price}
+• *Intended Event Date:* ${clientDate}
+• *Budget Preference:* ${clientBudget}
+• *Venue / Special Requests:* ${clientNotes ? clientNotes : 'Please confirm date availability and booking slot.'}
+
+Could you please check your team's availability for this date and let me know the booking procedure? We look forward to confirming our booking with Films By Hiimii.
+
+Warm regards,
+*${clientName}*`;
 
         const encodedMsg = encodeURIComponent(finalMessage);
         const waUrl = `https://wa.me/923163870862?text=${encodedMsg}`;
@@ -10261,10 +10296,12 @@ We want to book this package.
         iframe.src = videoUrl + "?autoplay=1&rel=0&showinfo=0&modestbranding=1";
         
         modal.style.display = 'flex';
-        // Elegant micro-delay to let display kick in prior to CSS opacity transitions
-        setTimeout(() => {
-          modal.classList.add('show');
-        }, 15);
+        // Double RAF for pristine smooth opacity and transform transition
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            modal.classList.add('show');
+          });
+        });
 
         document.body.style.overflow = 'hidden';
       }
@@ -10295,9 +10332,11 @@ We want to book this package.
             window.Tracker.track('teaser_preview_viewed', { trigger_source: triggerSource });
           }
           modal.style.display = 'flex';
-          setTimeout(() => {
-            modal.classList.add('show');
-          }, 10);
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              modal.classList.add('show');
+            });
+          });
         }
       }
 
@@ -10695,12 +10734,22 @@ We want to book this package.
         // Display modal
         modal.style.display = 'flex';
         document.body.style.overflow = 'hidden'; // prevent outer scroll
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            modal.classList.add('show');
+          });
+        });
       }
 
       function closeIGPost() {
         const modal = document.getElementById('igModal');
-        if (modal) modal.style.display = 'none';
-        document.body.style.overflow = ''; // restore outer scroll
+        if (modal) {
+          modal.classList.remove('show');
+          setTimeout(() => {
+            modal.style.display = 'none';
+            document.body.style.overflow = ''; // restore outer scroll
+          }, 350);
+        }
       }
 
       function closeIGModalOnBg(event) {
@@ -10879,7 +10928,7 @@ We want to book this package.
           </div>
 
           <div class="teaser-btn-group">
-            <a href="https://wa.me/923163870862?text=Hi%20Hamza!%20I%20saw%20the%20teaser%20for%20the%20new%202026-2027%20season%20deals%20and%20packages%20on%20your%20website.%20I'm%20highly%20interested%20in%20getting%20early-bird%20details%20and%20securing%20a%20priority%20booking%20slot!" target="_blank" class="teaser-btn-primary" onclick="showTeaserRedirectToast()">
+            <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20saw%20the%20teaser%20for%20the%202026-2027%20season%20deals%20on%20your%20Films%20By%20Hiimii%20website.%20I%20would%20love%20to%20get%20early-bird%20details%20and%20check%20availability%20for%20our%20upcoming%20events." target="_blank" class="teaser-btn-primary" onclick="showTeaserRedirectToast()">
               Inquire On WhatsApp &rarr;
             </a>
             <button class="teaser-btn-secondary" onclick="closeTeaserModal()">
