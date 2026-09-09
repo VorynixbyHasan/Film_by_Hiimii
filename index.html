@@ -2488,6 +2488,39 @@
         display: none !important;
       }
 
+      .desktop-text-only {
+        display: inline;
+      }
+
+      .mobile-text-only {
+        display: none !important;
+      }
+
+      .read-this-btn {
+        display: none !important;
+      }
+
+      .season-offer-actions {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn-season-action-primary {
+        padding: 16px 32px;
+        font-size: 14px;
+        border-radius: 30px;
+        box-shadow: 0 10px 20px rgba(201, 168, 76, 0.15);
+      }
+
+      .btn-season-action-secondary {
+        padding: 16px 32px;
+        font-size: 14px;
+        border-radius: 30px;
+        border: 1px solid rgba(201, 168, 76, 0.3);
+      }
+
       /* 3D Cinematic Slider Styles */
       .testimonial-3d-wrapper {
         display: flex;
@@ -3448,9 +3481,23 @@
         border: 1px solid rgba(201, 168, 76, 0.12);
       }
 
+      @media (max-width: 640px) {
+        .crew-steppers-grid {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+      }
+
       .crew-stepper-box {
         display: flex;
         flex-direction: column;
+        gap: 8px;
+      }
+
+      .crew-label-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         gap: 8px;
       }
 
@@ -3462,6 +3509,37 @@
         display: flex;
         align-items: center;
         gap: 6px;
+      }
+
+      .crew-tier-badge {
+        font-family: var(--font-sans);
+        font-size: 10.5px;
+        font-weight: 600;
+        color: var(--text-secondary);
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(201, 168, 76, 0.2);
+        padding: 2px 7px;
+        border-radius: 4px;
+        white-space: nowrap;
+        transition: all 0.2s ease;
+      }
+
+      .crew-tier-badge.extra {
+        color: #D4AF37;
+        background: rgba(201, 168, 76, 0.15);
+        border-color: var(--accent-gold);
+        font-weight: 700;
+      }
+
+      body.light-theme .crew-tier-badge {
+        background: rgba(0, 0, 0, 0.04);
+        color: #4B5563;
+      }
+
+      body.light-theme .crew-tier-badge.extra {
+        background: rgba(201, 168, 76, 0.15);
+        color: #8A6D1C;
+        border-color: #C9A84C;
       }
 
       .stepper-ui {
@@ -3487,10 +3565,21 @@
         outline: none;
       }
 
-      .stepper-btn:hover {
+      .stepper-btn:hover:not(.disabled) {
         background: var(--accent-gold);
         color: #FFFFFF;
         border-color: var(--accent-gold);
+      }
+
+      .stepper-btn.disabled {
+        opacity: 0.32;
+        cursor: not-allowed;
+        border-color: rgba(255, 255, 255, 0.1);
+        pointer-events: none;
+      }
+
+      body.light-theme .stepper-btn.disabled {
+        border-color: rgba(0, 0, 0, 0.12);
       }
 
       .stepper-count {
@@ -3506,6 +3595,105 @@
         backface-visibility: hidden;
       }
 
+      .crew-micro-note {
+        font-family: var(--font-sans);
+        font-size: 11px;
+        color: var(--text-secondary);
+        line-height: 1.3;
+        transition: color 0.2s ease;
+      }
+
+      .crew-micro-note.extra {
+        color: var(--accent-gold);
+        font-weight: 600;
+      }
+
+      /* In-card Day Add-ons / Equipment Ticks */
+      .day-inclusions-bar {
+        margin-top: 14px;
+        padding-top: 12px;
+        border-top: 1px solid rgba(201, 168, 76, 0.12);
+      }
+
+      .day-inclusions-label {
+        display: block;
+        font-family: var(--font-sans);
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 8px;
+      }
+
+      .day-inclusions-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .day-inc-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 12px;
+        background: var(--bg-primary);
+        border: 1px solid rgba(201, 168, 76, 0.22);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        user-select: none;
+      }
+
+      .day-inc-pill:hover {
+        border-color: var(--accent-gold);
+        background: rgba(201, 168, 76, 0.08);
+      }
+
+      .day-inc-pill.active {
+        background: rgba(201, 168, 76, 0.14);
+        border-color: var(--accent-gold);
+        box-shadow: 0 2px 8px rgba(201, 168, 76, 0.18);
+      }
+
+      .day-inc-checkbox {
+        width: 17px;
+        height: 17px;
+        border-radius: 4px;
+        border: 1.5px solid rgba(201, 168, 76, 0.45);
+        background: var(--bg-secondary);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        font-weight: 800;
+        color: transparent;
+        flex-shrink: 0;
+        transition: all 0.15s ease;
+      }
+
+      .day-inc-pill.active .day-inc-checkbox {
+        background: var(--accent-gold);
+        border-color: var(--accent-gold);
+        color: #000000;
+        font-weight: 900;
+      }
+
+      .day-inc-name {
+        font-family: var(--font-sans);
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .day-inc-cost {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--accent-gold);
+        padding-left: 2px;
+      }
+
       /* Add-ons Checklist with Tickable Checkboxes */
       .addons-grid {
         display: grid;
@@ -3515,7 +3703,7 @@
 
       .addon-card {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         gap: 12px;
         padding: 14px 16px;
         background: var(--bg-secondary);
@@ -3547,6 +3735,7 @@
         align-items: center;
         justify-content: center;
         flex-shrink: 0;
+        margin-top: 2px;
         transition: all 0.2s ease;
       }
 
@@ -3571,6 +3760,7 @@
         display: flex;
         flex-direction: column;
         gap: 2px;
+        flex: 1;
       }
 
       .addon-name {
@@ -3586,6 +3776,58 @@
         font-size: 11px;
         color: var(--text-secondary);
         line-height: 1.3;
+      }
+
+      .reel-choice-wrap {
+        margin-top: 9px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding-top: 8px;
+        border-top: 1px dashed rgba(201, 168, 76, 0.25);
+      }
+
+      .reel-choice-label {
+        font-family: var(--font-sans);
+        font-size: 10.5px;
+        font-weight: 700;
+        color: var(--accent-gold);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .reel-pills-row {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-wrap: wrap;
+      }
+
+      .reel-pill-btn {
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 11.5px;
+        font-weight: 600;
+        font-family: var(--font-sans);
+        background: var(--bg-primary);
+        border: 1px solid rgba(201, 168, 76, 0.3);
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all 0.2s ease;
+        user-select: none;
+      }
+
+      .reel-pill-btn:hover {
+        border-color: var(--accent-gold);
+        color: var(--text-primary);
+      }
+
+      .reel-pill-btn.active {
+        background: var(--accent-gold);
+        color: #121212;
+        border-color: var(--accent-gold);
+        font-weight: 700;
+        box-shadow: 0 2px 6px rgba(201, 168, 76, 0.25);
       }
 
       /* Budget and Chips */
@@ -4176,21 +4418,21 @@
 
         /* Hero text scaling */
         .hero-line-1, .hero-line-2 {
-          font-size: 46px !important;
+          font-size: 30px !important;
         }
         .hero-quote-redesigned {
-          font-size: 16px !important;
-          padding: 0 12px;
+          font-size: 13px !important;
+          padding: 0 8px;
         }
 
         /* Section badges and titles scaling */
         .section-title, .about-title {
-          font-size: 32px !important;
+          font-size: 24px !important;
         }
 
-        /* Stays 15px minimum for general paragraphs & text */
-        body, p, .about-bio p, .bullet-item, .checkbox-label {
-          font-size: 15px !important;
+        /* Base mobile text sizing */
+        body, p, .about-bio p {
+          font-size: 13px;
         }
 
         /* All two column layouts to single column with gap 32px */
@@ -4313,27 +4555,9 @@
           display: inline !important;
         }
 
-        /* Preclude rear overlapping items on mobile standard review carousel */
-        .slide-3d.slide-prev, .slide-3d.slide-next {
-          opacity: 0 !important;
-          pointer-events: none !important;
-          visibility: hidden !important;
-        }
-        .slide-3d.slide-active {
-          opacity: 1 !important;
-          pointer-events: auto !important;
-          visibility: visible !important;
-          transform: none !important;
-          position: relative !important;
-          width: 100% !important;
-          max-width: 100% !important;
-        }
+        /* Testimonial slider base reset for mobile */
         .testimonial-3d-slider {
-          height: auto !important;
-          min-height: 380px !important;
-          display: flex !important;
-          align-items: center !important;
-          justify-content: center !important;
+          perspective: none !important;
         }
 
         .package-card {
@@ -4353,7 +4577,7 @@
         }
 
         /* Thumb-friendly button size (min-height 48px), stack contact buttons */
-        .btn, .contact-btn, .btn-pkg-book, .btn-builder-send, .hero-btn-a, .hero-btn-b {
+        .btn, .contact-btn, .btn-pkg-book, .btn-builder-send {
           min-height: 48px;
           display: inline-flex;
           align-items: center;
@@ -4442,7 +4666,7 @@
           padding: 24px 16px !important;
         }
         /* Buttons are full-width on narrow viewports */
-        .btn, .contact-btn, .btn-pkg-book, .btn-builder-send, .hero-btn-a, .hero-btn-b {
+        .btn, .contact-btn, .btn-pkg-book, .btn-builder-send {
           width: 100% !important;
           max-width: 100% !important;
         }
@@ -5973,12 +6197,96 @@
           overflow-wrap: break-word !important;
         }
 
+        .hero {
+          min-height: auto !important;
+          padding: 60px 14px 28px 14px !important;
+        }
+
+        .hero-ornament {
+          font-size: 8.5px !important;
+          letter-spacing: 0.08em !important;
+          margin-bottom: 6px !important;
+          gap: 6px !important;
+        }
+
         .hero-line-1,
         .hero-line-2 {
-          font-size: 30px !important;
-          line-height: 1.15 !important;
+          font-size: 28px !important;
+          line-height: 1.12 !important;
           letter-spacing: -0.015em !important;
           text-wrap: balance !important;
+        }
+
+        .hero-title-container {
+          gap: 3px !important;
+          margin-bottom: 6px !important;
+        }
+
+        .fbh-badge-redesigned {
+          padding: 2px 7px !important;
+          margin: 6px auto !important;
+        }
+
+        .hero-quote-redesigned {
+          font-size: 11.5px !important;
+          line-height: 1.4 !important;
+          max-width: 92% !important;
+          margin: 0 auto 14px auto !important;
+          padding: 0 4px !important;
+        }
+
+        .hero-btns-container {
+          display: flex !important;
+          flex-direction: row !important;
+          gap: 8px !important;
+          width: 100% !important;
+          max-width: 270px !important;
+          margin: 0 auto !important;
+          justify-content: center !important;
+          align-items: center !important;
+        }
+
+        .hero-btn-a,
+        .hero-btn-b {
+          flex: 1 !important;
+          width: auto !important;
+          max-width: 132px !important;
+          height: 32px !important;
+          min-height: 32px !important;
+          font-size: 9.5px !important;
+          letter-spacing: 0.05em !important;
+          padding: 0 8px !important;
+          border-radius: 20px !important;
+          white-space: nowrap !important;
+          display: inline-flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          box-sizing: border-box !important;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        .hero-btn-b .btn-icon {
+          font-size: 11px !important;
+          margin-right: 3px !important;
+        }
+
+        .scroll-indicator-redesigned {
+          display: none !important;
+        }
+
+        .announcement-actions {
+          flex-direction: column !important;
+          gap: 8px !important;
+          width: 100% !important;
+        }
+
+        .btn-announcement {
+          width: 100% !important;
+          max-width: 280px !important;
+          padding: 10px 16px !important;
+          font-size: 11px !important;
+          min-height: 38px !important;
+          height: 38px !important;
         }
 
         .hero-subtitle-container p {
@@ -5993,11 +6301,61 @@
           font-size: 12.5px !important;
           line-height: 1.45 !important;
           max-width: 92% !important;
-          margin: 4px auto 14px auto !important;
+          margin: 4px auto 10px auto !important;
           letter-spacing: 0 !important;
           padding: 0 6px !important;
           color: var(--text-secondary) !important;
           text-wrap: balance !important;
+        }
+
+        /* Universal Collapsible Big Text for Mobile View */
+        .mobile-text-collapsible {
+          position: relative;
+          transition: all 0.3s ease;
+        }
+
+        .mobile-text-collapsible.is-collapsed {
+          display: -webkit-box !important;
+          -webkit-line-clamp: 2 !important;
+          -webkit-box-orient: vertical !important;
+          overflow: hidden !important;
+          text-overflow: ellipsis !important;
+          margin-bottom: 2px !important;
+          cursor: pointer !important;
+          -webkit-tap-highlight-color: transparent !important;
+        }
+
+        .read-this-btn {
+          display: inline-flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          gap: 3px !important;
+          background: rgba(201, 168, 76, 0.08) !important;
+          border: 1px solid rgba(201, 168, 76, 0.28) !important;
+          color: var(--accent-gold) !important;
+          font-family: var(--font-sans) !important;
+          font-size: 10px !important;
+          font-weight: 600 !important;
+          padding: 3px 12px !important;
+          margin: 4px auto 12px auto !important;
+          cursor: pointer !important;
+          text-decoration: none !important;
+          letter-spacing: 0.04em !important;
+          border-radius: 20px !important;
+          transition: all 0.2s ease !important;
+          -webkit-tap-highlight-color: transparent !important;
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04) !important;
+        }
+
+        .read-this-btn:active {
+          transform: scale(0.96) !important;
+          background: rgba(201, 168, 76, 0.2) !important;
+        }
+
+        .read-this-btn.is-expanded {
+          background: transparent !important;
+          border-color: rgba(201, 168, 76, 0.15) !important;
+          color: var(--text-secondary) !important;
         }
 
         /* 4. WORDS & LETTERING OPTIMIZATION: Prevent stretched tracking or awkward wrapping */
@@ -6135,56 +6493,87 @@
 
         /* Instagram Stories Tabs */
         .instagram-highlights-container {
-          gap: 12px !important;
-          padding: 8px 4px !important;
-          margin-bottom: 14px !important;
+          gap: 8px !important;
+          padding: 6px 4px !important;
+          margin-bottom: 8px !important;
         }
 
         .instagram-highlight-ring {
-          width: 52px !important;
-          height: 52px !important;
-          padding: 2px !important;
+          width: 38px !important;
+          height: 38px !important;
+          padding: 1.5px !important;
         }
 
         .instagram-highlight-title {
-          font-size: 9px !important;
-          margin-top: 4px !important;
+          font-size: 7.5px !important;
+          margin-top: 2px !important;
         }
 
-        /* 6. SLIM FLOATING CURVED GLASS NAVBAR & MOBILE MENU */
+        /* 6. FIXED TRANSPARENT NAVBAR & SIDE-DOTS MENU (NO BULKY BG) */
         .navbar {
-          top: 10px !important;
-          left: 50% !important;
-          transform: translateX(-50%) !important;
-          width: calc(100% - 20px) !important;
+          position: fixed !important;
+          top: 0 !important;
+          left: 0 !important;
+          transform: none !important;
+          width: 100% !important;
           max-width: 100% !important;
           height: 48px !important;
-          border-radius: 40px !important; /* Curved pill corners on mobile */
-          padding: 0 14px !important;
-          background: rgba(255, 255, 255, 0.85) !important;
-          backdrop-filter: blur(16px) saturate(180%) !important;
-          -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
-          border: 1px solid rgba(255, 255, 255, 0.8) !important;
-          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07), 0 0 0 1px rgba(201, 168, 76, 0.22) !important;
+          border-radius: 0 !important;
+          padding: 0 16px !important;
+          background: transparent !important;
+          backdrop-filter: none !important;
+          -webkit-backdrop-filter: none !important;
+          border: none !important;
+          box-shadow: none !important;
+          pointer-events: none !important;
+          z-index: 1000 !important;
         }
 
         body.dark-theme .navbar,
         [data-theme="dark"] .navbar {
-          background: rgba(18, 18, 22, 0.85) !important;
-          border-color: rgba(255, 255, 255, 0.1) !important;
-          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(201, 168, 76, 0.28) !important;
+          background: transparent !important;
+          border: none !important;
+          box-shadow: none !important;
         }
 
         .navbar.scrolled {
-          top: 8px !important;
-          background: rgba(255, 255, 255, 0.94) !important;
-          box-shadow: 0 8px 26px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(201, 168, 76, 0.28) !important;
+          top: 0 !important;
+          background: transparent !important;
+          box-shadow: none !important;
+          border: none !important;
         }
 
         body.dark-theme .navbar.scrolled,
         [data-theme="dark"] .navbar.scrolled {
-          background: rgba(15, 15, 18, 0.94) !important;
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(201, 168, 76, 0.35) !important;
+          background: transparent !important;
+          box-shadow: none !important;
+          border: none !important;
+        }
+
+        .navbar-container {
+          width: 100% !important;
+          height: 100% !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: space-between !important;
+          pointer-events: none !important;
+          padding: 0 !important;
+          background: transparent !important;
+          border: none !important;
+          box-shadow: none !important;
+        }
+
+        .navbar-brand {
+          font-size: 15px !important;
+          letter-spacing: 0.08em !important;
+          pointer-events: auto !important;
+          background: transparent !important;
+          text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45) !important;
+        }
+
+        .navbar-brand span {
+          font-size: 8px !important;
+          letter-spacing: 0.1em !important;
         }
 
         .navbar-actions-desktop {
@@ -6199,59 +6588,89 @@
           display: flex !important;
           align-items: center !important;
           gap: 6px !important;
+          pointer-events: auto !important;
+          margin-left: auto !important;
         }
 
-        .navbar-brand {
-          font-size: 14px !important;
-          letter-spacing: 0.08em !important;
-        }
-
-        .navbar-brand span {
-          font-size: 8px !important;
-          letter-spacing: 0.1em !important;
-        }
-
-        .menu-btn {
-          font-size: 16px !important;
-          width: 32px !important;
-          height: 32px !important;
+        .menu-btn,
+        .menu-btn#menu-toggle {
+          font-size: 22px !important;
+          line-height: 1 !important;
+          font-weight: 700 !important;
+          width: 36px !important;
+          height: 36px !important;
           display: flex !important;
           align-items: center !important;
           justify-content: center !important;
+          background: transparent !important;
+          border: none !important;
+          box-shadow: none !important;
+          color: var(--text-primary) !important;
+          cursor: pointer !important;
+          padding: 0 !important;
+          filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.45)) !important;
+          transition: transform 0.2s ease !important;
         }
 
-        .theme-toggle-btn {
-          width: 30px !important;
-          height: 30px !important;
-          font-size: 13px !important;
+        .menu-btn:active,
+        .menu-btn#menu-toggle:active {
+          transform: scale(0.9) !important;
+        }
+
+        .theme-toggle-btn,
+        .theme-toggle-btn#mobile-theme-toggle {
+          width: 36px !important;
+          height: 36px !important;
+          font-size: 17px !important;
+          line-height: 1 !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          background: transparent !important;
+          border: none !important;
+          box-shadow: none !important;
+          cursor: pointer !important;
+          padding: 0 !important;
+          filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.45)) !important;
+          transition: transform 0.2s ease !important;
+        }
+
+        .theme-toggle-btn:active,
+        .theme-toggle-btn#mobile-theme-toggle:active {
+          transform: scale(0.9) !important;
         }
 
         .mobile-menu {
-          top: 64px !important;
-          left: 50% !important;
-          transform: translateX(-50%) !important;
-          width: calc(100% - 20px) !important;
-          border-radius: 20px !important;
-          background: rgba(255, 255, 255, 0.95) !important;
+          position: fixed !important;
+          top: 50px !important;
+          right: 12px !important;
+          left: auto !important;
+          transform: none !important;
+          width: 210px !important;
+          max-width: calc(100vw - 24px) !important;
+          border-radius: 14px !important;
+          background: rgba(255, 255, 255, 0.96) !important;
           backdrop-filter: blur(20px) !important;
           -webkit-backdrop-filter: blur(20px) !important;
-          border: 1px solid rgba(201, 168, 76, 0.25) !important;
-          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12) !important;
-          padding: 14px 16px !important;
-          gap: 3px !important;
+          border: 1px solid rgba(201, 168, 76, 0.3) !important;
+          box-shadow: 0 14px 34px rgba(0, 0, 0, 0.15) !important;
+          padding: 10px 12px !important;
+          gap: 2px !important;
+          pointer-events: auto !important;
+          z-index: 1001 !important;
         }
 
         body.dark-theme .mobile-menu,
         [data-theme="dark"] .mobile-menu {
-          background: rgba(20, 20, 24, 0.96) !important;
-          border-color: rgba(201, 168, 76, 0.3) !important;
-          box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5) !important;
+          background: rgba(20, 20, 24, 0.97) !important;
+          border-color: rgba(201, 168, 76, 0.35) !important;
+          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6) !important;
         }
 
         .mobile-menu .nav-link {
-          padding: 8px 10px !important;
-          font-size: 12.5px !important;
-          letter-spacing: 0.05em !important;
+          padding: 7px 10px !important;
+          font-size: 12px !important;
+          letter-spacing: 0.04em !important;
           border-radius: 6px !important;
           color: var(--text-primary) !important;
         }
@@ -6403,68 +6822,658 @@
           right: 2px !important;
         }
 
-        /* 8. SALE COUNTDOWN SECTION SCALING */
+        /* 8. SALE COUNTDOWN SECTION SCALING (SHORT & SLEEK UI/UX) */
         .season-offer-card {
-          padding: 20px 14px !important;
-          border-radius: 14px !important;
+          padding: 14px 12px !important;
+          border-radius: 12px !important;
+        }
+
+        .season-offer-badge {
+          font-size: 8px !important;
+          padding: 3px 8px !important;
+          margin-bottom: 6px !important;
+          letter-spacing: 0.08em !important;
+        }
+
+        .season-offer-card h2 {
+          font-size: 18px !important;
+          margin-bottom: 4px !important;
+          line-height: 1.2 !important;
+        }
+
+        .season-offer-card p {
+          font-size: 10.5px !important;
+          line-height: 1.35 !important;
+          margin: 0 auto 10px auto !important;
+          max-width: 100% !important;
         }
 
         .countdown-grid {
-          gap: 6px !important;
-          margin: 0 auto 16px auto !important;
-          max-width: 320px !important;
+          gap: 5px !important;
+          margin: 0 auto 10px auto !important;
+          max-width: 260px !important;
         }
 
         .countdown-box {
-          padding: 8px 3px !important;
-          border-radius: 8px !important;
+          padding: 6px 2px !important;
+          border-radius: 6px !important;
         }
 
         .countdown-number {
-          font-size: 22px !important;
+          font-size: 17px !important;
           line-height: 1 !important;
         }
 
         .countdown-label {
-          font-size: 7.5px !important;
+          font-size: 6.5px !important;
           margin-top: 2px !important;
           letter-spacing: 0.04em !important;
         }
 
+        .desktop-text-only {
+          display: none !important;
+        }
+
+        .mobile-text-only {
+          display: inline !important;
+        }
+
         .season-offer-actions {
+          display: flex !important;
           flex-direction: column !important;
-          gap: 6px !important;
+          gap: 5px !important;
           width: 100% !important;
+          max-width: 270px !important;
+          margin: 0 auto !important;
         }
 
         .season-offer-actions .btn {
           width: 100% !important;
-          max-width: 260px !important;
-          margin: 0 auto !important;
+          max-width: 100% !important;
+          height: 36px !important;
+          min-height: 36px !important;
+          line-height: 36px !important;
+          font-size: 11px !important;
+          padding: 0 10px !important;
+          border-radius: 18px !important;
+          margin: 0 !important;
+          white-space: nowrap !important;
+          box-sizing: border-box !important;
+          display: inline-flex !important;
+          align-items: center !important;
+          justify-content: center !important;
         }
 
-        /* 9. ANNOUNCEMENT CARD SCALING */
+        /* 9. ANNOUNCEMENT CARD SCALING (ULTRA COMPACT "BOOKINGS ARE OPEN") */
+        .card-corners, .card-corners-extra {
+          display: none !important; /* Hide fixed inset corner brackets on mobile to prevent slicing through buttons */
+        }
+
         .announcement-card {
-          padding: 22px 14px !important;
-          border-radius: 14px !important;
+          padding: 18px 14px 20px 14px !important;
+          border-radius: 16px !important;
+          border: 1px solid rgba(201, 168, 76, 0.3) !important;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04) !important;
+          max-width: 100% !important;
+        }
+
+        .announcement-card .premium-badge-pill {
+          font-size: 8px !important;
+          padding: 2px 8px !important;
+          margin-bottom: 4px !important;
+        }
+
+        .announcement-title {
+          font-size: 19px !important;
+          line-height: 1.15 !important;
+          margin: 4px 0 2px 0 !important;
+          letter-spacing: -0.01em !important;
+        }
+
+        .announcement-subtitle-dates {
+          font-size: 9px !important;
+          margin-bottom: 6px !important;
+          letter-spacing: 0.1em !important;
+        }
+
+        .special-season-promo {
+          padding: 6px 10px !important;
+          margin: 6px auto !important;
+          border-radius: 8px !important;
+          background: rgba(201, 168, 76, 0.07) !important;
+          border: 1px solid rgba(201, 168, 76, 0.22) !important;
+          max-width: 100% !important;
+        }
+
+        .promo-header-pill {
+          font-size: 8px !important;
+          padding: 2px 6px !important;
+          margin-bottom: 2px !important;
+        }
+
+        .promo-body-text {
+          display: none !important; /* Hide long paragraph on mobile to keep card clean and short */
+        }
+
+        .promo-benefit-tag {
+          font-size: 8px !important;
+          padding: 2px 8px !important;
+          margin-top: 2px !important;
+          font-weight: 600 !important;
+          display: inline-block !important;
+          border-radius: 12px !important;
+        }
+
+        .announcement-divider {
+          margin: 6px auto !important;
+          width: 32px !important;
+        }
+
+        .announcement-intro {
+          font-size: 9px !important;
+          margin-bottom: 5px !important;
         }
 
         .booking-events-grid {
-          grid-template-columns: repeat(2, 1fr) !important;
-          gap: 6px !important;
-          margin-bottom: 10px !important;
+          grid-template-columns: repeat(4, 1fr) !important;
+          gap: 4px !important;
+          margin-bottom: 6px !important;
+          max-width: 100% !important;
         }
 
         .booking-event-item {
-          padding: 6px 4px !important;
-          font-size: 10px !important;
-          gap: 4px !important;
+          padding: 4px 2px !important;
+          font-size: 8px !important;
+          flex-direction: column !important;
+          justify-content: center !important;
+          text-align: center !important;
+          gap: 2px !important;
+          min-height: 34px !important;
           border-radius: 6px !important;
+          line-height: 1.15 !important;
         }
 
         .booking-event-item svg {
           width: 11px !important;
           height: 11px !important;
+          margin: 0 auto !important;
+        }
+
+        .announcement-location {
+          font-size: 8.5px !important;
+          margin: 4px 0 6px 0 !important;
+        }
+
+        .announcement-actions {
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 6px !important;
+          width: 100% !important;
+          max-width: 250px !important;
+          margin: 6px auto 0 auto !important;
+        }
+
+        .btn-announcement {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: 35px !important;
+          min-height: 35px !important;
+          font-size: 10px !important;
+          letter-spacing: 0.08em !important;
+          padding: 0 10px !important;
+          border-radius: 20px !important;
+          white-space: nowrap !important;
+          display: inline-flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          box-sizing: border-box !important;
+        }
+
+        .btn-announcement-primary {
+          background-color: var(--accent-gold) !important;
+          color: #FFFFFF !important;
+          border: 1px solid var(--accent-gold) !important;
+          box-shadow: 0 3px 10px rgba(201, 168, 76, 0.25) !important;
+        }
+
+        .btn-announcement-whatsapp {
+          background-color: rgba(201, 168, 76, 0.05) !important;
+          border: 1px solid rgba(201, 168, 76, 0.3) !important;
+          color: var(--text-primary) !important;
+        }
+
+        /* 9B. LIVE INSTAGRAM REPLICA COMPACT SCALING */
+        .instagram-container {
+          margin: 10px auto 0 auto !important;
+          border-radius: 12px !important;
+        }
+
+        .instagram-header {
+          flex-direction: column !important;
+          align-items: center !important;
+          padding: 10px 10px !important;
+          gap: 6px !important;
+        }
+
+        .instagram-avatar-wrapper {
+          margin-bottom: 2px !important;
+        }
+
+        .instagram-avatar-ring {
+          width: 48px !important;
+          height: 48px !important;
+          padding: 1.5px !important;
+          margin: 0 auto !important;
+        }
+
+        .instagram-username-row {
+          flex-wrap: wrap !important;
+          justify-content: center !important;
+          gap: 4px !important;
+          margin-bottom: 4px !important;
+        }
+
+        .instagram-username-title {
+          font-size: 13px !important;
+          gap: 4px !important;
+        }
+
+        .instagram-verified-badge svg {
+          width: 12px !important;
+          height: 12px !important;
+        }
+
+        .instagram-btn-row {
+          gap: 4px !important;
+        }
+
+        .instagram-profile-btn {
+          padding: 3px 8px !important;
+          font-size: 9.5px !important;
+          height: 24px !important;
+          min-height: 24px !important;
+          border-radius: 5px !important;
+        }
+
+        .instagram-stats-row {
+          padding: 4px 0 !important;
+          margin: 4px 0 !important;
+          gap: 2px !important;
+          border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        }
+
+        body.light-theme .instagram-stats-row {
+          border-color: #efefef !important;
+        }
+
+        .instagram-stat-item {
+          font-size: 8.5px !important;
+        }
+
+        .instagram-stat-num {
+          font-size: 11.5px !important;
+          font-weight: 700 !important;
+        }
+
+        .instagram-bio-section {
+          margin-top: 4px !important;
+          text-align: left !important;
+          padding: 0 4px !important;
+        }
+
+        .instagram-bio-name {
+          font-size: 10.5px !important;
+          margin-bottom: 1px !important;
+        }
+
+        .instagram-bio-category {
+          font-size: 8.5px !important;
+          margin-bottom: 2px !important;
+        }
+
+        .instagram-bio-text {
+          font-size: 9px !important;
+          line-height: 1.25 !important;
+        }
+
+        .instagram-bio-link {
+          font-size: 9px !important;
+          margin-top: 2px !important;
+        }
+
+        .instagram-stacked-followers {
+          font-size: 8px !important;
+          margin-top: 4px !important;
+          gap: 4px !important;
+        }
+
+        .instagram-mini-avatar {
+          width: 14px !important;
+          height: 14px !important;
+        }
+
+        .instagram-highlights-container {
+          padding: 4px 6px !important;
+          gap: 6px !important;
+          margin-bottom: 6px !important;
+        }
+
+        .instagram-highlight-item {
+          width: 42px !important;
+          flex-shrink: 0 !important;
+        }
+
+        .instagram-highlight-ring {
+          width: 36px !important;
+          height: 36px !important;
+          padding: 1.5px !important;
+        }
+
+        .instagram-highlight-title {
+          font-size: 7.5px !important;
+          margin-top: 2px !important;
+        }
+
+        .instagram-feed-grid {
+          gap: 2px !important;
+          padding: 2px !important;
+        }
+
+        .instagram-open-btn-container {
+          margin-top: 8px !important;
+        }
+
+        .instagram-open-btn-container .btn {
+          height: 32px !important;
+          min-height: 32px !important;
+          font-size: 10px !important;
+          padding: 0 14px !important;
+          border-radius: 16px !important;
+        }
+
+        /* 9C. CLIENT TESTIMONIALS COMPACT & SMOOTH (SHORT 3D SLIDER) */
+        .testimonials {
+          padding: 24px 12px !important;
+        }
+
+        .testimonials .section-title {
+          font-size: 20px !important;
+          margin-bottom: 3px !important;
+        }
+
+        .testimonials .section-subtitle {
+          font-size: 10.5px !important;
+          line-height: 1.35 !important;
+          margin-bottom: 10px !important;
+        }
+
+        .testimonials-header-switcher {
+          margin-bottom: 8px !important;
+        }
+
+        .testimonial-switcher {
+          height: 28px !important;
+          padding: 2px !important;
+          margin: 0 auto 8px auto !important;
+          gap: 2px !important;
+        }
+
+        .testimonial-switch-btn {
+          height: 24px !important;
+          min-height: 24px !important;
+          line-height: 24px !important;
+          font-size: 9px !important;
+          padding: 0 6px !important;
+        }
+
+        /* Fixed, rock-solid Testimonial Slider for mobile: zero layout jumps, zero 3D distortion */
+        .testimonial-3d-wrapper {
+          position: relative !important;
+          width: 100% !important;
+          margin: 4px auto 0 auto !important;
+        }
+
+        .testimonial-3d-slider {
+          position: relative !important;
+          width: 100% !important;
+          max-width: 360px !important;
+          height: 160px !important;
+          min-height: 160px !important;
+          max-height: 160px !important;
+          margin: 0 auto !important;
+          overflow: hidden !important;
+          perspective: none !important;
+          display: block !important;
+        }
+
+        .slide-3d {
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+          right: 0 !important;
+          bottom: 0 !important;
+          width: 100% !important;
+          height: 100% !important;
+          max-width: 100% !important;
+          padding: 12px 14px !important;
+          border-radius: 12px !important;
+          background: var(--bg-primary) !important;
+          border: 1px solid rgba(201, 168, 76, 0.25) !important;
+          box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04) !important;
+          box-sizing: border-box !important;
+          display: flex !important;
+          flex-direction: column !important;
+          justify-content: space-between !important;
+          opacity: 0 !important;
+          pointer-events: none !important;
+          visibility: hidden !important;
+          transform: translateX(30px) !important;
+          transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease !important;
+        }
+
+        .slide-3d.slide-active {
+          opacity: 1 !important;
+          pointer-events: auto !important;
+          visibility: visible !important;
+          transform: translateX(0) !important;
+          z-index: 5 !important;
+          position: absolute !important;
+        }
+
+        .slide-3d.slide-prev {
+          opacity: 0 !important;
+          pointer-events: none !important;
+          visibility: hidden !important;
+          transform: translateX(-30px) !important;
+        }
+
+        .slide-3d.slide-next {
+          opacity: 0 !important;
+          pointer-events: none !important;
+          visibility: hidden !important;
+          transform: translateX(30px) !important;
+        }
+
+        .slide-3d.slide-hidden-left,
+        .slide-3d.slide-hidden-right {
+          opacity: 0 !important;
+          pointer-events: none !important;
+          visibility: hidden !important;
+          transform: translateX(40px) !important;
+        }
+
+        .quote-icon {
+          font-size: 16px !important;
+          line-height: 1 !important;
+          height: 12px !important;
+          color: var(--accent-gold) !important;
+          margin-bottom: 2px !important;
+          opacity: 0.85 !important;
+        }
+
+        .testimonial-quote {
+          font-size: 11px !important;
+          line-height: 1.4 !important;
+          margin: 0 0 6px 0 !important;
+          display: -webkit-box !important;
+          -webkit-line-clamp: 3 !important;
+          -webkit-box-orient: vertical !important;
+          overflow: hidden !important;
+          font-style: italic !important;
+          color: var(--text-primary) !important;
+        }
+
+        .testimonial-author-wrapper {
+          display: flex !important;
+          align-items: center !important;
+          gap: 8px !important;
+          margin-top: auto !important;
+        }
+
+        .testimonial-author-avatar {
+          width: 24px !important;
+          height: 24px !important;
+          font-size: 11px !important;
+          border-radius: 50% !important;
+          background: rgba(201, 168, 76, 0.12) !important;
+          border: 1px solid rgba(201, 168, 76, 0.3) !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          flex-shrink: 0 !important;
+        }
+
+        .testimonial-author-info {
+          display: flex !important;
+          flex-direction: column !important;
+          text-align: left !important;
+        }
+
+        .testimonial-author-name {
+          font-size: 11px !important;
+          font-weight: 600 !important;
+          color: var(--text-primary) !important;
+          line-height: 1.2 !important;
+        }
+
+        .testimonial-author-role {
+          font-size: 8px !important;
+          color: var(--accent-gold) !important;
+          letter-spacing: 0.04em !important;
+          line-height: 1.2 !important;
+        }
+
+        .slider-controls-3d {
+          margin-top: 8px !important;
+          gap: 10px !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+        }
+
+        .slider-nav-btn {
+          width: 26px !important;
+          height: 26px !important;
+          font-size: 11px !important;
+          border-radius: 50% !important;
+          border: 1px solid rgba(201, 168, 76, 0.3) !important;
+          background: var(--bg-primary) !important;
+          color: var(--accent-gold) !important;
+          display: inline-flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+          cursor: pointer !important;
+        }
+
+        .slider-dots {
+          display: flex !important;
+          gap: 5px !important;
+          align-items: center !important;
+        }
+
+        .slider-dot {
+          width: 6px !important;
+          height: 6px !important;
+          border-radius: 50% !important;
+          background: rgba(201, 168, 76, 0.25) !important;
+          transition: all 0.25s ease !important;
+        }
+
+        .slider-dot.active {
+          width: 14px !important;
+          border-radius: 4px !important;
+          background: var(--accent-gold) !important;
+        }
+
+        /* Testimonials Grid view on mobile */
+        #testi-view-grid {
+          grid-template-columns: 1fr !important;
+          gap: 8px !important;
+          max-width: 100% !important;
+          margin-top: 8px !important;
+        }
+
+        .testimonial-card {
+          padding: 12px 14px !important;
+          border-radius: 12px !important;
+          border: 1px solid rgba(201, 168, 76, 0.22) !important;
+          margin-bottom: 0 !important;
+        }
+
+        /* Testimonials Compact Accordion view on mobile */
+        .testimonial-accordion-container {
+          gap: 6px !important;
+          margin-top: 8px !important;
+        }
+
+        .testi-accordion-item {
+          border-radius: 10px !important;
+          margin-bottom: 6px !important;
+          overflow: hidden !important;
+        }
+
+        .testi-accordion-header {
+          padding: 8px 10px !important;
+          gap: 8px !important;
+        }
+
+        .testi-header-avatar {
+          width: 26px !important;
+          height: 26px !important;
+          font-size: 13px !important;
+        }
+
+        .testi-accordion-name {
+          font-size: 11px !important;
+        }
+
+        .testi-accordion-role {
+          font-size: 8px !important;
+        }
+
+        .testi-accordion-content {
+          max-height: 0 !important;
+          overflow: hidden !important;
+          padding: 0 10px !important;
+          padding-top: 0 !important;
+          padding-bottom: 0 !important;
+          box-sizing: border-box !important;
+          transition: max-height 0.35s ease, padding 0.35s ease !important;
+        }
+
+        .testi-accordion-item.active .testi-accordion-content {
+          padding-top: 2px !important;
+          padding-bottom: 10px !important;
+        }
+
+        .testi-accordion-inner {
+          padding: 6px 0 0 0 !important;
+        }
+
+        .testi-accordion-quote {
+          font-size: 11px !important;
+          line-height: 1.35 !important;
         }
 
         /* 10. ADD-ONS CHIPS */
@@ -6515,69 +7524,566 @@
           font-weight: 600 !important;
         }
 
-        /* 12. CUSTOM BUILDER FORM */
+        /* 12. BESPOKE CUSTOM BUILDER (100% COMPACT MOBILE PRECISION) */
         .builder-card {
-          padding: 16px 12px !important;
+          padding: 14px 10px !important;
           border-radius: 12px !important;
+          margin-top: 10px !important;
         }
 
-        .builder-progress-container {
+        .builder-step-card {
+          padding: 12px 10px !important;
+          margin-bottom: 12px !important;
+          border-radius: 10px !important;
+        }
+
+        .step-header {
+          gap: 10px !important;
           margin-bottom: 10px !important;
-          padding-bottom: 6px !important;
         }
 
-        .builder-label {
-          font-size: 10px !important;
-          margin-bottom: 3px !important;
+        .step-num {
+          width: 22px !important;
+          height: 22px !important;
+          min-width: 22px !important;
+          font-size: 11px !important;
+          box-shadow: 0 1px 4px rgba(201, 168, 76, 0.3) !important;
+        }
+
+        .step-title {
+          font-size: 14px !important;
+          line-height: 1.25 !important;
+          margin: 0 0 2px 0 !important;
+        }
+
+        .step-desc {
+          font-size: 10.5px !important;
+          line-height: 1.35 !important;
+          color: var(--text-secondary) !important;
+        }
+
+        .builder-sublabel {
+          font-size: 9.5px !important;
+          letter-spacing: 0.06em !important;
+          margin-bottom: 5px !important;
         }
 
         .form-input {
           height: 36px !important;
-          padding: 0 8px !important;
+          padding: 0 10px !important;
           font-size: 11.5px !important;
-          border-radius: 6px !important;
+          border-radius: 7px !important;
         }
 
-        .checkbox-grid {
+        textarea.form-input {
+          height: auto !important;
+          min-height: 52px !important;
+          padding: 8px 10px !important;
+          font-size: 11px !important;
+          line-height: 1.35 !important;
+        }
+
+        /* Step 2 Event Type Grid (Compact 3-column pill layout) */
+        .event-type-grid {
+          grid-template-columns: repeat(3, 1fr) !important;
+          gap: 6px !important;
+        }
+
+        .event-type-btn {
+          padding: 8px 4px !important;
+          border-radius: 8px !important;
+          min-height: 58px !important;
+        }
+
+        .event-type-icon {
+          font-size: 16px !important;
+          margin-bottom: 2px !important;
+        }
+
+        .event-type-name {
+          font-size: 10px !important;
+          line-height: 1.2 !important;
+        }
+
+        .wedding-days-box {
+          padding: 10px 8px !important;
+          margin-top: 8px !important;
+          border-radius: 8px !important;
+        }
+
+        .days-pills-grid {
           gap: 5px !important;
         }
 
-        .checkbox-item {
-          padding: 6px 8px !important;
-          border-radius: 6px !important;
+        .day-pill-btn {
+          padding: 5px 10px !important;
+          font-size: 10.5px !important;
+          border-radius: 14px !important;
         }
 
-        .checkbox-label {
+        .single-day-pill {
+          padding: 5px 10px !important;
+          font-size: 10.5px !important;
+          border-radius: 14px !important;
+          gap: 5px !important;
+        }
+
+        /* Step 3 Day-by-Day Event Cards & Steppers */
+        .events-crew-list {
+          gap: 10px !important;
+        }
+
+        .day-event-card {
+          padding: 10px 9px !important;
+          border-radius: 8px !important;
+        }
+
+        .day-event-header {
+          margin-bottom: 8px !important;
+        }
+
+        .day-event-tag {
+          font-size: 9.5px !important;
+          padding: 2px 7px !important;
+          border-radius: 4px !important;
+        }
+
+        .day-event-header span:last-child {
           font-size: 10px !important;
         }
 
-        /* 13. FLOATING WIDGETS */
-        .floating-teaser-trigger {
-          bottom: 10px !important;
-          left: 10px !important;
-          padding: 5px 10px !important;
-          gap: 5px !important;
-          border-radius: 25px !important;
-          background: var(--bg-primary) !important;
-          border: 1px solid rgba(201, 168, 76, 0.25) !important;
-          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+        .event-name-input-group {
+          margin-bottom: 10px !important;
         }
 
-        .floating-teaser-icon {
+        .quick-chips-row {
+          gap: 4px !important;
+          margin-top: 5px !important;
+        }
+
+        .quick-chip {
+          padding: 3px 7px !important;
+          font-size: 10px !important;
+          border-radius: 4px !important;
+        }
+
+        .crew-steppers-grid {
+          grid-template-columns: 1fr !important;
+          gap: 8px !important;
+          padding: 8px 10px !important;
+          border-radius: 8px !important;
+        }
+
+        .crew-stepper-box {
+          gap: 4px !important;
+        }
+
+        .crew-label {
+          font-size: 11px !important;
+          gap: 4px !important;
+        }
+
+        .crew-tier-badge {
+          font-size: 9px !important;
+          padding: 1px 5px !important;
+          border-radius: 3px !important;
+        }
+
+        .stepper-ui {
+          gap: 8px !important;
+        }
+
+        .stepper-btn {
+          width: 28px !important;
+          height: 28px !important;
+          font-size: 13px !important;
+          border-radius: 6px !important;
+        }
+
+        .stepper-count {
+          min-width: 22px !important;
+          font-size: 13px !important;
+        }
+
+        .crew-micro-note {
+          font-size: 9px !important;
+          line-height: 1.25 !important;
+        }
+
+        .day-inclusions-bar {
+          margin-top: 8px !important;
+          padding-top: 8px !important;
+        }
+
+        .day-inclusions-label {
+          font-size: 9px !important;
+          margin-bottom: 5px !important;
+        }
+
+        .day-inclusions-row {
+          gap: 5px !important;
+        }
+
+        .day-inc-pill {
+          padding: 5px 8px !important;
+          gap: 5px !important;
+          border-radius: 6px !important;
+        }
+
+        .day-inc-checkbox {
+          width: 14px !important;
+          height: 14px !important;
+          font-size: 9.5px !important;
+          border-radius: 3px !important;
+        }
+
+        .day-inc-name {
+          font-size: 10.5px !important;
+        }
+
+        .day-inc-cost {
+          font-size: 9.5px !important;
+        }
+
+        /* Step 4 Post-Production Addons Checklist */
+        .addons-grid {
+          grid-template-columns: 1fr !important;
+          gap: 6px !important;
+        }
+
+        .addon-card {
+          padding: 9px 10px !important;
+          gap: 8px !important;
+          border-radius: 8px !important;
+        }
+
+        .addon-checkbox {
+          width: 17px !important;
+          height: 17px !important;
+          border-radius: 4px !important;
+          margin-top: 1px !important;
+        }
+
+        .addon-checkbox::after {
+          font-size: 10.5px !important;
+        }
+
+        .addon-name {
+          font-size: 11.5px !important;
+          line-height: 1.25 !important;
+        }
+
+        .addon-desc {
+          font-size: 9.5px !important;
+          line-height: 1.3 !important;
+        }
+
+        .reel-choice-wrap {
+          margin-top: 6px !important;
+          padding-top: 5px !important;
+          gap: 4px !important;
+        }
+
+        .reel-choice-label {
+          font-size: 9px !important;
+        }
+
+        .reel-pills-row {
+          gap: 4px !important;
+        }
+
+        .reel-pill-btn {
+          padding: 3px 8px !important;
+          font-size: 10px !important;
+          border-radius: 4px !important;
+        }
+
+        /* Step 5 Dates, Budget & Coupon */
+        .form-row {
+          display: flex !important;
+          flex-direction: column !important;
+          gap: 8px !important;
+        }
+
+        .event-dates-grid {
+          grid-template-columns: 1fr !important;
+          gap: 5px !important;
+        }
+
+        .event-date-item {
+          padding: 6px 8px !important;
+          border-radius: 6px !important;
+          gap: 3px !important;
+        }
+
+        .event-date-label {
+          font-size: 10px !important;
+        }
+
+        .event-date-tag-badge {
+          font-size: 8.5px !important;
+          padding: 1px 4px !important;
+        }
+
+        .budget-input-wrap {
+          position: relative;
+        }
+
+        .budget-prefix {
+          left: 10px !important;
           font-size: 11px !important;
         }
 
+        .budget-field {
+          padding-left: 42px !important;
+          height: 36px !important;
+          font-size: 13px !important;
+        }
+
+        .budget-chips-wrap {
+          gap: 4px !important;
+          margin-top: 5px !important;
+        }
+
+        .budget-chip {
+          padding: 3px 8px !important;
+          font-size: 10px !important;
+          border-radius: 4px !important;
+        }
+
+        .builder-coupon-card {
+          padding: 10px !important;
+          border-radius: 8px !important;
+          margin-top: 8px !important;
+        }
+
+        .coupon-card-header {
+          margin-bottom: 6px !important;
+        }
+
+        .coupon-card-title {
+          font-size: 10px !important;
+          gap: 5px !important;
+        }
+
+        .coupon-input-row {
+          gap: 5px !important;
+        }
+
+        .coupon-text-input {
+          height: 34px !important;
+          font-size: 11px !important;
+          padding: 0 8px !important;
+        }
+
+        .btn-apply-coupon {
+          padding: 0 12px !important;
+          height: 34px !important;
+          font-size: 10.5px !important;
+        }
+
+        .coupon-feedback-msg {
+          font-size: 10.5px !important;
+          margin-top: 5px !important;
+        }
+
+        /* Step 6 Live Summary Box & WhatsApp CTA */
+        .builder-summary-card {
+          padding: 12px 10px !important;
+          border-radius: 10px !important;
+          margin-top: 12px !important;
+        }
+
+        .summary-header {
+          margin-bottom: 8px !important;
+          padding-bottom: 6px !important;
+        }
+
+        .summary-badge {
+          font-size: 8px !important;
+          padding: 2px 5px !important;
+          margin-bottom: 4px !important;
+        }
+
+        .summary-title {
+          font-size: 14px !important;
+        }
+
+        .summary-details-grid {
+          grid-template-columns: 1fr 1fr !important;
+          gap: 6px !important;
+          margin-bottom: 8px !important;
+        }
+
+        .summary-label {
+          font-size: 8.5px !important;
+        }
+
+        .summary-value {
+          font-size: 11px !important;
+        }
+
+        .summary-value.highlight-gold {
+          font-size: 13px !important;
+        }
+
+        .summary-breakdown-box,
+        .summary-addons-box {
+          padding: 8px !important;
+          border-radius: 6px !important;
+          margin-bottom: 8px !important;
+        }
+
+        .summary-breakdown-title {
+          font-size: 9px !important;
+          margin-bottom: 4px !important;
+        }
+
+        .sum-day-item {
+          font-size: 10px !important;
+          padding: 3px 0 !important;
+        }
+
+        .sum-addons-chips {
+          gap: 4px !important;
+        }
+
+        .sum-addon-pill {
+          font-size: 8.5px !important;
+          padding: 2px 6px !important;
+          border-radius: 5px !important;
+        }
+
+        .btn-builder-send {
+          padding: 10px 14px !important;
+          font-size: 11.5px !important;
+          min-height: 40px !important;
+          height: auto !important;
+          border-radius: 8px !important;
+          gap: 6px !important;
+          white-space: normal !important;
+          text-align: center !important;
+          line-height: 1.25 !important;
+        }
+
+        /* 13. FAQ ACCORDION MOBILE COMPACT */
+        .faq-accordion-container {
+          gap: 8px !important;
+        }
+
+        .faq-accordion-item {
+          border-radius: 8px !important;
+          margin-bottom: 6px !important;
+          overflow: hidden !important;
+        }
+
+        .faq-accordion-header {
+          padding: 10px 12px !important;
+        }
+
+        .faq-q-indicator {
+          font-size: 9px !important;
+          margin-bottom: 2px !important;
+        }
+
+        .faq-question {
+          font-size: 12.5px !important;
+          line-height: 1.3 !important;
+        }
+
+        .faq-toggle-icon {
+          font-size: 14px !important;
+          width: 20px !important;
+          height: 20px !important;
+        }
+
+        .faq-accordion-content {
+          max-height: 0 !important;
+          overflow: hidden !important;
+          padding: 0 12px !important;
+          padding-top: 0 !important;
+          padding-bottom: 0 !important;
+          box-sizing: border-box !important;
+          transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1), padding 0.35s ease !important;
+        }
+
+        .faq-accordion-item.active .faq-accordion-content {
+          padding-top: 2px !important;
+          padding-bottom: 12px !important;
+        }
+
+        .faq-answer {
+          font-size: 11px !important;
+          line-height: 1.45 !important;
+          padding-bottom: 0 !important;
+          margin: 0 !important;
+        }
+
+        /* 14. ABOUT ARTIST MOBILE COMPACT */
+        .about-grid {
+          gap: 16px !important;
+        }
+
+        .about-photo-col img {
+          max-height: 260px !important;
+          object-fit: cover !important;
+          border-radius: 10px !important;
+          width: 100% !important;
+        }
+
+        .about-bio p {
+          font-size: 11.5px !important;
+          line-height: 1.45 !important;
+          margin-bottom: 8px !important;
+        }
+
+        .about-stats-grid {
+          gap: 6px !important;
+          margin-top: 10px !important;
+        }
+
+        .about-stat-box {
+          padding: 6px 4px !important;
+          border-radius: 6px !important;
+        }
+
+        .about-stat-num {
+          font-size: 15px !important;
+        }
+
+        .about-stat-label {
+          font-size: 8.5px !important;
+        }
+
+        /* 15. FLOATING WIDGETS */
+        .floating-teaser-trigger {
+          bottom: 10px !important;
+          left: 10px !important;
+          padding: 5px 9px !important;
+          gap: 4px !important;
+          border-radius: 20px !important;
+          background: var(--bg-primary) !important;
+          border: 1px solid rgba(201, 168, 76, 0.25) !important;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+          z-index: 999 !important;
+        }
+
+        .floating-teaser-icon {
+          font-size: 10.5px !important;
+        }
+
         .floating-teaser-text {
-          font-size: 9.5px !important;
+          font-size: 9px !important;
           font-weight: 500 !important;
         }
 
         .floating-whatsapp {
-          width: 42px !important;
-          height: 42px !important;
+          width: 40px !important;
+          height: 40px !important;
           bottom: 10px !important;
           right: 10px !important;
-          font-size: 14px !important;
+          font-size: 15px !important;
+          z-index: 999 !important;
         }
       }
 
@@ -6585,20 +8091,23 @@
       @media (max-width: 360px) {
         .hero-line-1,
         .hero-line-2 {
-          font-size: 27px !important;
+          font-size: 25px !important;
         }
         .section-title {
-          font-size: 21px !important;
+          font-size: 20px !important;
         }
         .packages-grid .package-card {
-          flex: 0 0 90vw !important;
-          width: 90vw !important;
+          flex: 0 0 92vw !important;
+          width: 92vw !important;
         }
         .countdown-number {
-          font-size: 18px !important;
+          font-size: 16px !important;
         }
         .countdown-label {
-          font-size: 7px !important;
+          font-size: 6.5px !important;
+        }
+        .event-type-grid {
+          grid-template-columns: repeat(2, 1fr) !important;
         }
         .floating-teaser-text {
           display: none !important;
@@ -6711,8 +8220,15 @@
 
         <!-- ⑤ Two CTA buttons -->
         <div class="hero-btns-container">
-          <a href="#packages" class="hero-btn-a">View Luxury Packages</a>
-          <a href="https://wa.me/923163870862" target="_blank" class="hero-btn-b"><span class="btn-icon">💬</span> WhatsApp Us</a>
+          <a href="#packages" class="hero-btn-a">
+            <span class="desktop-text-only">View Luxury Packages</span>
+            <span class="mobile-text-only">View Packages</span>
+          </a>
+          <a href="https://wa.me/923163870862" target="_blank" class="hero-btn-b">
+            <span class="btn-icon">💬</span>
+            <span class="desktop-text-only">WhatsApp Us</span>
+            <span class="mobile-text-only">WhatsApp</span>
+          </a>
         </div>
       </div>
 
@@ -6761,7 +8277,8 @@
                 "To celebrate your beautiful beginnings, enjoy <strong class="promo-highlight">20% OFF</strong> for our first <strong class="promo-highlight">10 season couples</strong> who commission Films By Hiimii for their story."
               </p>
               <div class="promo-benefit-tag">
-                ✦ 20-Day Limited Privilege &nbsp;&middot;&nbsp; 20% Discount Automatically Applied
+                <span class="desktop-text-only">✦ 20-Day Limited Privilege &nbsp;&middot;&nbsp; 20% Discount Automatically Applied</span>
+                <span class="mobile-text-only">✦ 20-Day Limited &middot; 20% OFF Auto-Applied</span>
               </div>
             </div>
             
@@ -6846,7 +8363,8 @@
                 <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"></path>
                 <circle cx="12" cy="9" r="2.5" fill="currentColor"></circle>
               </svg>
-              &nbsp;Available for commissions nationwide &amp; destination events
+              <span class="desktop-text-only">&nbsp;Available for commissions nationwide &amp; destination events</span>
+              <span class="mobile-text-only">&nbsp;Commissions nationwide &amp; destinations</span>
             </p>
             
             <!-- CTA Actions -->
@@ -6872,7 +8390,8 @@
         <div class="section-header scroll-reveal">
           <span class="section-badge">Visual Showcase</span>
           <h2 class="section-title">The Cinematic <em>Collection</em></h2>
-          <p class="section-subtitle">A curated high-definition preview of real master moments. Click any work to explore in full cinematic HD view.</p>
+          <p class="section-subtitle mobile-text-collapsible is-collapsed" id="portfolio-subtitle">A curated high-definition preview of real master moments. Click any work to explore in full cinematic HD view.</p>
+          <button type="button" class="read-this-btn" data-target="portfolio-subtitle" aria-expanded="false" onclick="toggleMobileText(this)">... Read this ▾</button>
         </div>
 
         <div class="portfolio-grid scroll-reveal">
@@ -6967,7 +8486,7 @@
             <p class="about-sub">Photographer & Cinematographer</p>
             <div class="about-divider"></div>
 
-            <div class="about-bio">
+            <div class="about-bio mobile-text-collapsible is-collapsed" id="about-bio-text">
               <p>
                 "Hamza has spent years standing at the edge of the most important moments in people's lives — camera in hand, breath held — waiting for the frame that says everything."
               </p>
@@ -6978,6 +8497,7 @@
                 When you invite us to film your celebration, you are welcoming active artists who genuinely care how your legacy is cataloged, framed, and remembered across subsequent generations.
               </p>
             </div>
+            <button type="button" class="read-this-btn" data-target="about-bio-text" aria-expanded="false" onclick="toggleMobileText(this)">... Read this ▾</button>
 
             <a href="https://www.instagram.com/films_by_hiimii/?hl=en" target="_blank" class="btn btn-about">
               <!-- Inline compact SVG for Instagram icon -->
@@ -6996,7 +8516,8 @@
         <div class="section-header scroll-reveal text-center" style="margin-bottom: 40px; text-align: center;">
           <span class="section-badge" style="display: inline-block; font-family: var(--font-sans); font-size: 10px; font-weight: 600; color: #C9A84C; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 12px;">Instagram Connect</span>
           <h2 class="section-title" style="font-family: var(--font-serif); font-size: 52px; font-weight: 600; margin-bottom: 16px;">Live Instagram <em>Feed</em></h2>
-          <p class="section-subtitle" style="font-family: var(--font-sans); font-weight: 300; font-size: 17px; max-width: 600px; margin: 0 auto; line-height: 1.6;">Follow @films_by_hiimii and experience the luxury behind the scenes, recent highlights, and real-time wedding captures.</p>
+          <p class="section-subtitle mobile-text-collapsible is-collapsed" id="instagram-subtitle" style="font-family: var(--font-sans); font-weight: 300; font-size: 17px; max-width: 600px; margin: 0 auto; line-height: 1.6;">Follow @films_by_hiimii and experience the luxury behind the scenes, recent highlights, and real-time wedding captures.</p>
+          <button type="button" class="read-this-btn" data-target="instagram-subtitle" aria-expanded="false" onclick="toggleMobileText(this)">... Read this ▾</button>
         </div>
 
         <div class="instagram-container scroll-reveal">
@@ -7106,7 +8627,7 @@ Whatsapp or Call : +92 347 2790275</div>
           </div>
         </div>
 
-        <div style="text-align: center; margin-top: 32px;" class="scroll-reveal">
+        <div class="instagram-open-btn-container scroll-reveal" style="text-align: center; margin-top: 32px;">
           <a href="https://www.instagram.com/films_by_hiimii/?hl=en" target="_blank" class="btn btn-gold-fill" style="display: inline-flex; align-items: center; gap: 8px; border-radius: 30px; padding: 14px 28px;">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16" style="vertical-align: middle; display: inline-block;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             <span>Open @films_by_hiimii</span>
@@ -7176,9 +8697,10 @@ Whatsapp or Call : +92 347 2790275</div>
             First 10 Clients <em>Special Season Offer</em>
           </h2>
           
-          <p style="font-family: var(--font-sans); font-weight: 300; font-size: 16px; color: var(--text-secondary); max-width: 700px; margin: 0 auto 36px auto; line-height: 1.6;">
+          <p class="mobile-text-collapsible is-collapsed" id="sale-season-subtitle" style="font-family: var(--font-sans); font-weight: 300; font-size: 16px; color: var(--text-secondary); max-width: 700px; margin: 0 auto 10px auto; line-height: 1.6;">
             Reserve your legendary wedding films and candid coverage in the next <strong style="color: #FE5F55; font-variant-numeric: lining-nums;">20 days</strong>. Enjoy <strong style="color: #C9A84C; font-variant-numeric: lining-nums;">20% OFF</strong> for our first <strong style="color: #C9A84C; font-variant-numeric: lining-nums;">10 new season clients</strong> who book <strong style="color: #C9A84C;">FILMS BY HIIMII</strong> for your happiness! The 20% discount is applied automatically at the Custom Package Quote calculator below.
           </p>
+          <button type="button" class="read-this-btn" data-target="sale-season-subtitle" aria-expanded="false" onclick="toggleMobileText(this)">... Read this ▾</button>
 
           <!-- COUNTDOWN CLOCK GRID -->
           <div class="countdown-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 600px; margin: 0 auto 40px auto;">
@@ -7210,9 +8732,12 @@ Whatsapp or Call : +92 347 2790275</div>
           </div>
 
           <!-- Quick Action Buttons -->
-          <div class="season-offer-actions" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
-            <a href="#custom-builder" class="btn btn-gold-fill" style="padding: 16px 32px; font-size: 14px; border-radius: 30px; box-shadow: 0 10px 20px rgba(201, 168, 76, 0.15);">Use Custom Builder (20% Discount Auto-Applied) →</a>
-            <a href="#packages" class="btn btn-about" style="padding: 16px 32px; font-size: 14px; border-radius: 30px; border: 1px solid rgba(201, 168, 76, 0.3);">View Packages</a>
+          <div class="season-offer-actions">
+            <a href="#custom-builder" class="btn btn-gold-fill btn-season-action-primary">
+              <span class="desktop-text-only">Use Custom Builder (20% Discount Auto-Applied) &rarr;</span>
+              <span class="mobile-text-only">Use Custom Builder (20% OFF) &rarr;</span>
+            </a>
+            <a href="#packages" class="btn btn-about btn-season-action-secondary">View Packages</a>
           </div>
 
         </div>
@@ -7730,7 +9255,8 @@ Whatsapp or Call : +92 347 2790275</div>
         <div class="section-header scroll-reveal">
           <span class="section-badge">Client Stories</span>
           <h2 class="section-title">Love Truly <em>Recorded</em></h2>
-          <p class="section-subtitle">Read firsthand words from couples who trusted us to record their forever chapters with high artistic devotion.</p>
+          <p class="section-subtitle mobile-text-collapsible is-collapsed" id="testimonials-subtitle">Read firsthand words from couples who trusted us to record their forever chapters with high artistic devotion.</p>
+          <button type="button" class="read-this-btn" data-target="testimonials-subtitle" aria-expanded="false" onclick="toggleMobileText(this)">... Read this ▾</button>
         </div>
 
         <!-- Dynamic View Mode Toggle Switch Tabs -->
@@ -8108,7 +9634,8 @@ Whatsapp or Call : +92 347 2790275</div>
         <div class="section-header scroll-reveal">
           <span class="section-badge">Bespoke Creator</span>
           <h2 class="section-title">Create Your Own Package</h2>
-          <p class="section-subtitle">If our standard pre-made plans don't fit perfectly, design your own visual setup here! Customize your crew size, dates, and assets, propose a budget of your choice <strong>(ranging from PKR 25K to 190K)</strong>, and suggest it directly to Hamza.</p>
+          <p class="section-subtitle mobile-text-collapsible is-collapsed" id="builder-subtitle">If our standard pre-made plans don't fit perfectly, design your own visual setup here! Customize your crew size, dates, and assets, propose a budget of your choice <strong>(ranging from PKR 25K to 190K)</strong>, and suggest it directly to Hamza.</p>
+          <button type="button" class="read-this-btn" data-target="builder-subtitle" aria-expanded="false" onclick="toggleMobileText(this)">... Read this ▾</button>
         </div>
 
         <div class="glass-card builder-card scroll-reveal" id="builder-form">
@@ -8199,95 +9726,88 @@ Whatsapp or Call : +92 347 2790275</div>
             </div>
           </div>
 
-          <!-- STEP 4: ADD-ONS (SELECT BY TICK) -->
+          <!-- STEP 4: POST-PRODUCTION, EDITS & PICTURE WORK -->
           <div class="builder-step-card">
             <div class="step-header">
               <span class="step-num">4</span>
               <div>
-                <h3 class="step-title">Select Add-Ons (Tick to Include)</h3>
-                <p class="step-desc">Select any premium cinematic inclusions by ticking the boxes.</p>
+                <h3 class="step-title">Post-Production, Edits & Picture Work</h3>
+                <p class="step-desc">Select your editing styles, picture retouching, reels, and luxury keepsake albums.</p>
               </div>
             </div>
 
             <div class="addons-grid" id="new-addons-grid">
-              <!-- Checkbox tick cards -->
-              <div class="addon-card" data-addon="drone" onclick="toggleNewAddon(this, 'drone')">
+              <!-- 1. Color Graded Pics -->
+              <div class="addon-card active" data-addon="softpics" onclick="toggleNewAddon(this, 'softpics')">
                 <div class="addon-checkbox"></div>
                 <div class="addon-info">
-                  <span class="addon-name">🚁 Pro 4K Drone Aerial Coverage</span>
-                  <span class="addon-desc">High-altitude cinematic aerial perspective for grand moments (+ PKR 15,000)</span>
+                  <span class="addon-name">🎨 Color-Graded Pics</span>
+                  <span class="addon-desc">High-resolution color-graded soft retouched photos via cloud drive link (Included in Package)</span>
                 </div>
               </div>
 
-              <!-- 1 Luxury Album -->
+              <!-- 2. Instagram Reels (9:16) with Reel Selector -->
+              <div class="addon-card active" id="addon-card-reels" data-addon="reels" onclick="toggleNewAddon(this, 'reels')">
+                <div class="addon-checkbox"></div>
+                <div class="addon-info">
+                  <span class="addon-name">📱 Instagram Reels (9:16)</span>
+                  <span class="addon-desc">Vertical fast-paced dynamic edits for Instagram feeds &amp; stories (Included in Package)</span>
+                  
+                  <!-- Reel Choice Selector -->
+                  <div class="reel-choice-wrap" id="reels-choice-wrap" onclick="event.stopPropagation()">
+                    <span class="reel-choice-label">Choose Reels Count:</span>
+                    <div class="reel-pills-row">
+                      <button type="button" class="reel-pill-btn" data-reels="1" onclick="selectReelsCount(1, event)">1 Reel</button>
+                      <button type="button" class="reel-pill-btn active" data-reels="2" onclick="selectReelsCount(2, event)">2 Reels</button>
+                      <button type="button" class="reel-pill-btn" data-reels="3" onclick="selectReelsCount(3, event)">3 Reels</button>
+                      <button type="button" class="reel-pill-btn" data-reels="4" onclick="selectReelsCount(4, event)">4 Reels</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 3. Promo Highlights -->
+              <div class="addon-card active" data-addon="highlight" onclick="toggleNewAddon(this, 'highlight')">
+                <div class="addon-checkbox"></div>
+                <div class="addon-info">
+                  <span class="addon-name">🎬 Promo Highlights</span>
+                  <span class="addon-desc">3 to 5-minute emotive cinematic cut with sound design &amp; audio vows (Included in Package)</span>
+                </div>
+              </div>
+
+              <!-- 4. Full Documentary Timeline -->
+              <div class="addon-card active" data-addon="timeline" onclick="toggleNewAddon(this, 'timeline')">
+                <div class="addon-checkbox"></div>
+                <div class="addon-info">
+                  <span class="addon-name">🎞️ Full Documentary Timeline</span>
+                  <span class="addon-desc">Complete chronological storytelling footage &amp; ceremony moments (Included in Package)</span>
+                </div>
+              </div>
+
+              <!-- 5. 1 Luxury Album -->
               <div class="addon-card" id="addon-card-album1" data-addon="album1" onclick="toggleNewAddon(this, 'album1')">
                 <div class="addon-checkbox"></div>
                 <div class="addon-info">
-                  <span class="addon-name">📖 1 Luxury Hardcopy Printed Album</span>
+                  <span class="addon-name">📖 1 Luxury Album</span>
                   <span class="addon-desc">40-page mastercrafted flush-mount velvet keepsake album (+ PKR 20,000)</span>
                 </div>
               </div>
 
-              <!-- 2 Luxury Albums -->
+              <!-- 6. 2 Luxury Albums -->
               <div class="addon-card" id="addon-card-album2" data-addon="album2" onclick="toggleNewAddon(this, 'album2')">
                 <div class="addon-checkbox"></div>
                 <div class="addon-info">
-                  <span class="addon-name">📚 2 Luxury Hardcopy Printed Albums</span>
+                  <span class="addon-name">📚 2 Luxury Albums</span>
                   <span class="addon-desc">Two mastercrafted flush-mount velvet keepsake albums (+ PKR 35,000)</span>
                 </div>
               </div>
 
-              <!-- 3-Axis Gimbal -->
-              <div class="addon-card" data-addon="gimbal" onclick="toggleNewAddon(this, 'gimbal')">
+              <!-- 7. Master RAW Footage -->
+              <div class="addon-card active" data-addon="rawfootage" onclick="toggleNewAddon(this, 'rawfootage')">
                 <div class="addon-checkbox"></div>
                 <div class="addon-info">
-                  <span class="addon-name">🎥 3-Axis Gimbal Stabilization Rig</span>
-                  <span class="addon-desc">Motorized smooth motion stabilizer rig for cinema glide shots (+ PKR 20,000)</span>
-                </div>
-              </div>
-
-              <!-- Extra Camera -->
-              <div class="addon-card" data-addon="extracamera" onclick="toggleNewAddon(this, 'extracamera')">
-                <div class="addon-checkbox"></div>
-                <div class="addon-info">
-                  <span class="addon-name">📷 Extra Camera (Candid / Second Shooter)</span>
-                  <span class="addon-desc">Dedicated extra camera operator for comprehensive candid coverage (+ PKR 15,000)</span>
-                </div>
-              </div>
-
-              <!-- Cinematic Highlight Promo Movie (no extra price showed) -->
-              <div class="addon-card active" data-addon="highlight" onclick="toggleNewAddon(this, 'highlight')">
-                <div class="addon-checkbox"></div>
-                <div class="addon-info">
-                  <span class="addon-name">🎬 Cinematic Highlight Promo Movie</span>
-                  <span class="addon-desc">3 to 5-minute emotive cinematic cut with sound design (Included in Package)</span>
-                </div>
-              </div>
-
-              <!-- Optimized Instagram Reels (no extra price showed) -->
-              <div class="addon-card active" data-addon="reels" onclick="toggleNewAddon(this, 'reels')">
-                <div class="addon-checkbox"></div>
-                <div class="addon-info">
-                  <span class="addon-name">📱 Optimized Instagram Reels (9:16)</span>
-                  <span class="addon-desc">Vertical fast-paced dynamic edits for Instagram feeds & stories (Included in Package)</span>
-                </div>
-              </div>
-
-              <!-- Full Documentary Cinematic Timeline (no extra price showed) -->
-              <div class="addon-card" data-addon="timeline" onclick="toggleNewAddon(this, 'timeline')">
-                <div class="addon-checkbox"></div>
-                <div class="addon-info">
-                  <span class="addon-name">🎞️ Full Documentary Cinematic Timeline</span>
-                  <span class="addon-desc">Complete chronological storytelling footage & ceremony moments (Included in Package)</span>
-                </div>
-              </div>
-
-              <!-- Color-Graded Soft Pics -->
-              <div class="addon-card active" data-addon="softpics" onclick="toggleNewAddon(this, 'softpics')">
-                <div class="addon-checkbox"></div>
-                <div class="addon-info">
-                  <span class="addon-name">🎨 Color-Graded Soft Pics (Drive Link)</span>
-                  <span class="addon-desc">Full high-resolution soft-retouched photos via cloud link (Included in Package)</span>
+                  <span class="addon-name">💾 Master RAW Footage</span>
+                  <span class="addon-desc">Complete uncompressed 4K video clips &amp; camera RAW photo files (Included in Package)</span>
                 </div>
               </div>
             </div>
@@ -8422,7 +9942,8 @@ Whatsapp or Call : +92 347 2790275</div>
         <div class="section-header scroll-reveal">
           <span class="section-badge">Common Inquiries</span>
           <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
-          <p class="section-subtitle">Transparent answers centered around our boutique schedule, travel protocols, and cinematic delivery workflow.</p>
+          <p class="section-subtitle mobile-text-collapsible is-collapsed" id="faq-subtitle">Transparent answers centered around our boutique schedule, travel protocols, and cinematic delivery workflow.</p>
+          <button type="button" class="read-this-btn" data-target="faq-subtitle" aria-expanded="false" onclick="toggleMobileText(this)">... Read this ▾</button>
         </div>
 
         <div class="faq-accordion-container scroll-reveal">
@@ -8791,6 +10312,34 @@ Whatsapp or Call : +92 347 2790275</div>
         }
       }
 
+      // Touch swipe support for smooth mobile swiping of testimonials
+      (function initTestimonialTouchSwipe() {
+        const slider = document.querySelector('.testimonial-3d-slider');
+        if (!slider) return;
+        let startX = 0;
+        let startY = 0;
+        slider.addEventListener('touchstart', function(e) {
+          if (e.touches.length === 1) {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+          }
+        }, { passive: true });
+
+        slider.addEventListener('touchend', function(e) {
+          if (e.changedTouches.length === 1) {
+            const diffX = e.changedTouches[0].clientX - startX;
+            const diffY = e.changedTouches[0].clientY - startY;
+            if (Math.abs(diffX) > 35 && Math.abs(diffX) > Math.abs(diffY)) {
+              if (diffX < 0) {
+                next3DTestimonial();
+              } else {
+                prev3DTestimonial();
+              }
+            }
+          }
+        }, { passive: true });
+      })();
+
       // Compact Accordion FAQ style logic
       function toggleTestiAccordion(element) {
         const items = document.querySelectorAll('.testi-accordion-item');
@@ -9128,20 +10677,19 @@ Whatsapp or Call : +92 347 2790275</div>
         eventType: 'Wedding',
         daysCount: 3,
         daysData: [
-          { name: 'Mehndi', photographers: 2, videographers: 2, date: '' },
-          { name: 'Barat', photographers: 2, videographers: 2, date: '' },
-          { name: 'Valima', photographers: 2, videographers: 2, date: '' }
+          { name: 'Mehndi', photographers: 2, videographers: 2, drone: false, gimbal: false, date: '' },
+          { name: 'Barat', photographers: 2, videographers: 2, drone: false, gimbal: false, date: '' },
+          { name: 'Valima', photographers: 2, videographers: 2, drone: false, gimbal: false, date: '' }
         ],
         addons: {
-          drone: false,
+          softpics: true,
+          reels: true,
+          reelsCount: 2,
+          highlight: true,
+          timeline: true,
           album1: false,
           album2: false,
-          gimbal: false,
-          extracamera: false,
-          highlight: true,
-          reels: true,
-          timeline: false,
-          softpics: true
+          rawfootage: true
         },
         appliedCoupon: {
           code: '',
@@ -9160,6 +10708,21 @@ Whatsapp or Call : +92 347 2790275</div>
         'Bridal Shower',
         'Reception / Shoot'
       ];
+
+      function getCrewBadge(role, count) {
+        if (count >= 3) return { text: '3 Crew (Max)', isExtra: true };
+        if (count === 2) return { text: 'Standard (2)', isExtra: false };
+        if (count === 1) return { text: 'Solo (1)', isExtra: false };
+        return { text: 'None (0)', isExtra: false };
+      }
+
+      function getCrewNote(role, count) {
+        const title = role === 'photographers' ? 'Photographer' : 'Cinematographer';
+        if (count >= 3) return `3 ${title}s Coverage (Max Limit)`;
+        if (count === 2) return `✓ Standard Coverage (2 ${title}s)`;
+        if (count === 1) return `Single Lead ${title}`;
+        return `No ${title.toLowerCase()} for this day`;
+      }
 
       function selectNewEventType(type) {
         newCustomBuilderState.eventType = type;
@@ -9204,7 +10767,7 @@ Whatsapp or Call : +92 347 2790275</div>
           else if (type === 'Other') singleDayName = 'Special Event';
 
           newCustomBuilderState.daysData = [
-            { name: singleDayName, photographers: 2, videographers: 2, date: '' }
+            { name: singleDayName, photographers: 2, videographers: 2, drone: false, gimbal: false, date: '' }
           ];
 
           renderDaysEventsCrewUI();
@@ -9228,14 +10791,14 @@ Whatsapp or Call : +92 347 2790275</div>
         const eventDaysHidden = document.getElementById('event-days');
         if (eventDaysHidden) eventDaysHidden.value = days.toString();
 
-        // Adjust daysData array preserving existing dates and names
+        // Adjust daysData array preserving existing dates, crew and inclusions
         const newDaysData = [];
         for (let i = 0; i < days; i++) {
           if (newCustomBuilderState.daysData[i]) {
             newDaysData.push(newCustomBuilderState.daysData[i]);
           } else {
             const fallbackName = defaultWeddingNames[i] || `Day ${i + 1} Event`;
-            newDaysData.push({ name: fallbackName, photographers: 2, videographers: 2, date: '' });
+            newDaysData.push({ name: fallbackName, photographers: 2, videographers: 2, drone: false, gimbal: false, date: '' });
           }
         }
         newCustomBuilderState.daysData = newDaysData;
@@ -9254,7 +10817,7 @@ Whatsapp or Call : +92 347 2790275</div>
         const eventType = newCustomBuilderState.eventType;
 
         for (let i = 0; i < count; i++) {
-          const item = newCustomBuilderState.daysData[i] || { name: `Day ${i + 1}`, photographers: 2, videographers: 2, date: '' };
+          const item = newCustomBuilderState.daysData[i] || { name: `Day ${i + 1}`, photographers: 2, videographers: 2, drone: false, gimbal: false, date: '' };
           const dayTitle = count === 1 ? `${eventType} Event Details` : `Day ${i + 1}`;
 
           // Quick chips suggestions based on event type
@@ -9270,6 +10833,11 @@ Whatsapp or Call : +92 347 2790275</div>
           }
 
           const chipsHtml = chips.map(c => `<button type="button" class="quick-chip" onclick="setDayEventName(${i}, '${c}')">${c}</button>`).join('');
+
+          const photoBadge = getCrewBadge('photographers', item.photographers);
+          const photoNote = getCrewNote('photographers', item.photographers);
+          const videoBadge = getCrewBadge('videographers', item.videographers);
+          const videoNote = getCrewNote('videographers', item.videographers);
 
           html += `
             <div class="day-event-card">
@@ -9289,21 +10857,53 @@ Whatsapp or Call : +92 347 2790275</div>
               <div class="crew-steppers-grid">
                 <!-- Photographers Stepper -->
                 <div class="crew-stepper-box">
-                  <span class="crew-label">📸 Photographers</span>
+                  <div class="crew-label-row">
+                    <span class="crew-label">📸 Photographers</span>
+                    <span class="crew-tier-badge ${photoBadge.isExtra ? 'extra' : ''}" id="badge-photo-${i}">${photoBadge.text}</span>
+                  </div>
                   <div class="stepper-ui">
-                    <button type="button" class="stepper-btn" onclick="changeCrewCount(${i}, 'photographers', -1)">−</button>
+                    <button type="button" class="stepper-btn ${item.photographers <= 0 ? 'disabled' : ''}" onclick="changeCrewCount(${i}, 'photographers', -1)" aria-label="Decrease Photographers">−</button>
                     <span class="stepper-count" id="count-photo-${i}">${item.photographers}</span>
-                    <button type="button" class="stepper-btn" onclick="changeCrewCount(${i}, 'photographers', 1)">+</button>
+                    <button type="button" class="stepper-btn ${item.photographers >= 3 ? 'disabled' : ''}" onclick="changeCrewCount(${i}, 'photographers', 1)" aria-label="Increase Photographers">+</button>
+                  </div>
+                  <div class="crew-micro-note ${photoBadge.isExtra ? 'extra' : ''}" id="note-photo-${i}">
+                    ${photoNote}
                   </div>
                 </div>
 
                 <!-- Videographers / Cameramen Stepper -->
                 <div class="crew-stepper-box">
-                  <span class="crew-label">🎥 Cameramen (Cinematographers)</span>
+                  <div class="crew-label-row">
+                    <span class="crew-label">🎥 Cameramen</span>
+                    <span class="crew-tier-badge ${videoBadge.isExtra ? 'extra' : ''}" id="badge-video-${i}">${videoBadge.text}</span>
+                  </div>
                   <div class="stepper-ui">
-                    <button type="button" class="stepper-btn" onclick="changeCrewCount(${i}, 'videographers', -1)">−</button>
+                    <button type="button" class="stepper-btn ${item.videographers <= 0 ? 'disabled' : ''}" onclick="changeCrewCount(${i}, 'videographers', -1)" aria-label="Decrease Cameramen">−</button>
                     <span class="stepper-count" id="count-video-${i}">${item.videographers}</span>
-                    <button type="button" class="stepper-btn" onclick="changeCrewCount(${i}, 'videographers', 1)">+</button>
+                    <button type="button" class="stepper-btn ${item.videographers >= 3 ? 'disabled' : ''}" onclick="changeCrewCount(${i}, 'videographers', 1)" aria-label="Increase Cameramen">+</button>
+                  </div>
+                  <div class="crew-micro-note ${videoBadge.isExtra ? 'extra' : ''}" id="note-video-${i}">
+                    ${videoNote}
+                  </div>
+                </div>
+              </div>
+
+              <!-- In-Card Tickable Add-ons (Drone, Gimbal) -->
+              <div class="day-inclusions-bar">
+                <span class="day-inclusions-label">Day Add-Ons & Equipment (Tick to Include):</span>
+                <div class="day-inclusions-row">
+                  <!-- Drone Aerial -->
+                  <div class="day-inc-pill ${item.drone ? 'active' : ''}" id="day-inc-drone-${i}" onclick="toggleDayInclusion(${i}, 'drone')" title="Tick to include 4K Drone Aerial for this day">
+                    <span class="day-inc-checkbox">${item.drone ? '✓' : ''}</span>
+                    <span class="day-inc-name">🚁 4K Drone Aerial</span>
+                    <span class="day-inc-cost">+PKR 15k</span>
+                  </div>
+
+                  <!-- Gimbal Rig -->
+                  <div class="day-inc-pill ${item.gimbal ? 'active' : ''}" id="day-inc-gimbal-${i}" onclick="toggleDayInclusion(${i}, 'gimbal')" title="Tick to include 3-Axis Gimbal Stabilizer for this day">
+                    <span class="day-inc-checkbox">${item.gimbal ? '✓' : ''}</span>
+                    <span class="day-inc-name">🎥 Gimbal Stabilizer</span>
+                    <span class="day-inc-cost">+PKR 20k</span>
                   </div>
                 </div>
               </div>
@@ -9338,7 +10938,7 @@ Whatsapp or Call : +92 347 2790275</div>
         let current = newCustomBuilderState.daysData[dayIdx][role] || 0;
         current += delta;
         if (current < 0) current = 0;
-        if (current > 6) current = 6;
+        if (current > 3) current = 3; // Strict limit: 2 is base, max 3
         
         newCustomBuilderState.daysData[dayIdx][role] = current;
 
@@ -9349,6 +10949,56 @@ Whatsapp or Call : +92 347 2790275</div>
           setTimeout(() => {
             countEl.style.transform = 'scale(1)';
           }, 130);
+
+          // Update stepper buttons disabled states
+          const stepperUi = countEl.parentElement;
+          if (stepperUi) {
+            const btns = stepperUi.querySelectorAll('.stepper-btn');
+            if (btns.length === 2) {
+              btns[0].classList.toggle('disabled', current <= 0);
+              btns[1].classList.toggle('disabled', current >= 3);
+            }
+          }
+        }
+
+        // Update badge and micro note
+        const badgeEl = document.getElementById(role === 'photographers' ? `badge-photo-${dayIdx}` : `badge-video-${dayIdx}`);
+        const noteEl = document.getElementById(role === 'photographers' ? `note-photo-${dayIdx}` : `note-video-${dayIdx}`);
+        const badgeInfo = getCrewBadge(role, current);
+        const noteText = getCrewNote(role, current);
+
+        if (badgeEl) {
+          badgeEl.innerText = badgeInfo.text;
+          badgeEl.className = 'crew-tier-badge' + (badgeInfo.isExtra ? ' extra' : '');
+        }
+        if (noteEl) {
+          noteEl.innerHTML = noteText;
+          noteEl.className = 'crew-micro-note' + (badgeInfo.isExtra ? ' extra' : '');
+        }
+
+        updateNewBuilderSummary();
+      }
+
+      function toggleDayInclusion(dayIdx, type) {
+        if (!newCustomBuilderState.daysData[dayIdx]) return;
+        const day = newCustomBuilderState.daysData[dayIdx];
+
+        if (type === 'drone') {
+          day.drone = !day.drone;
+          const pill = document.getElementById(`day-inc-drone-${dayIdx}`);
+          if (pill) {
+            pill.classList.toggle('active', !!day.drone);
+            const cb = pill.querySelector('.day-inc-checkbox');
+            if (cb) cb.innerText = day.drone ? '✓' : '';
+          }
+        } else if (type === 'gimbal') {
+          day.gimbal = !day.gimbal;
+          const pill = document.getElementById(`day-inc-gimbal-${dayIdx}`);
+          if (pill) {
+            pill.classList.toggle('active', !!day.gimbal);
+            const cb = pill.querySelector('.day-inc-checkbox');
+            if (cb) cb.innerText = day.gimbal ? '✓' : '';
+          }
         }
 
         updateNewBuilderSummary();
@@ -9416,6 +11066,14 @@ Whatsapp or Call : +92 347 2790275</div>
 
         newCustomBuilderState.addons[addonKey] = nextState;
 
+        // If toggling reels, show/hide reel choices
+        if (addonKey === 'reels') {
+          const reelsWrap = document.getElementById('reels-choice-wrap');
+          if (reelsWrap) {
+            reelsWrap.style.display = nextState ? 'flex' : 'none';
+          }
+        }
+
         if (cardEl) {
           if (nextState) {
             cardEl.classList.add('active');
@@ -9423,6 +11081,26 @@ Whatsapp or Call : +92 347 2790275</div>
             cardEl.classList.remove('active');
           }
         }
+        updateNewBuilderSummary();
+      }
+
+      function selectReelsCount(count, event) {
+        if (event) event.stopPropagation();
+        newCustomBuilderState.addons.reels = true;
+        newCustomBuilderState.addons.reelsCount = count;
+
+        const card = document.getElementById('addon-card-reels');
+        if (card) card.classList.add('active');
+
+        const reelsWrap = document.getElementById('reels-choice-wrap');
+        if (reelsWrap) reelsWrap.style.display = 'flex';
+
+        const buttons = document.querySelectorAll('.reel-pill-btn');
+        buttons.forEach(btn => {
+          const bCount = parseInt(btn.getAttribute('data-reels'), 10);
+          btn.classList.toggle('active', bCount === count);
+        });
+
         updateNewBuilderSummary();
       }
 
@@ -9574,10 +11252,25 @@ Whatsapp or Call : +92 347 2790275</div>
               const parsed = new Date(d.date);
               dateSnippet = !isNaN(parsed.getTime()) ? ` &bull; <em>${parsed.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' })}</em>` : ` &bull; <em>${d.date}</em>`;
             }
+
+            let photoStr = `${d.photographers} Photographer${d.photographers !== 1 ? 's' : ''}`;
+            let videoStr = `${d.videographers} Cameraman${d.videographers !== 1 ? 's' : ''}`;
+
+            const dayInclusions = [];
+            if (d.drone) dayInclusions.push('🚁 Drone (+15k)');
+            if (d.gimbal) dayInclusions.push('🎥 Gimbal (+20k)');
+
+            const inclusionsHtml = dayInclusions.length > 0
+              ? `<div style="font-size: 11px; color: var(--accent-gold); margin-top: 2px;">└ Inclusions: ${dayInclusions.join(', ')}</div>`
+              : '';
+
             listHtml += `
-              <div class="sum-day-item">
-                <span><strong>Day ${idx + 1} (${evName})${dateSnippet}:</strong></span>
-                <span>${d.photographers} Photographer${d.photographers !== 1 ? 's' : ''} &bull; ${d.videographers} Cameraman${d.videographers !== 1 ? 's' : ''}</span>
+              <div class="sum-day-item" style="display: flex; flex-direction: column; gap: 2px; padding: 6px 0; border-bottom: 1px dashed rgba(201, 168, 76, 0.15);">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px;">
+                  <span><strong>Day ${idx + 1} (${evName})${dateSnippet}:</strong></span>
+                  <span style="font-size: 12.5px;">${photoStr} &bull; ${videoStr}</span>
+                </div>
+                ${inclusionsHtml}
               </div>
             `;
           });
@@ -9587,23 +11280,35 @@ Whatsapp or Call : +92 347 2790275</div>
         // Render Addons Pills
         const sumAddonsContainer = document.getElementById('sum-addons-chips');
         if (sumAddonsContainer) {
-          const addonLabels = {
-            drone: '🚁 Pro 4K Drone (+PKR 15k)',
-            album1: '📖 1 Luxury Album (+PKR 20k)',
-            album2: '📚 2 Luxury Albums (+PKR 35k)',
-            gimbal: '🎥 Gimbal Rig (+PKR 20k)',
-            extracamera: '📷 Extra Camera (+PKR 15k)',
-            highlight: '🎬 Cinematic Highlight',
-            reels: '📱 Instagram Reels (9:16)',
-            timeline: '🎞️ Documentary Timeline',
-            softpics: '🎨 Soft Pics (Drive)'
-          };
+          const activeItems = [];
+          
+          // Check if any day has drone or gimbal from Step 3 equipment
+          const droneDays = newCustomBuilderState.daysData.filter(d => d.drone).length;
+          if (droneDays > 0) {
+            activeItems.push(`🚁 4K Drone (${droneDays} Day${droneDays > 1 ? 's' : ''} • +PKR ${(droneDays * 15000).toLocaleString()})`);
+          }
 
-          const activeKeys = Object.keys(newCustomBuilderState.addons).filter(k => newCustomBuilderState.addons[k]);
-          if (activeKeys.length > 0) {
-            sumAddonsContainer.innerHTML = activeKeys.map(k => `<span class="sum-addon-pill">${addonLabels[k] || k}</span>`).join('');
+          const gimbalDays = newCustomBuilderState.daysData.filter(d => d.gimbal).length;
+          if (gimbalDays > 0) {
+            activeItems.push(`🎥 Gimbal Rig (${gimbalDays} Day${gimbalDays > 1 ? 's' : ''} • +PKR ${(gimbalDays * 20000).toLocaleString()})`);
+          }
+
+          // Post-Production, Edits & Deliverables from Step 4 (Included in Package, only Albums have extra price)
+          if (newCustomBuilderState.addons.softpics) activeItems.push('🎨 Color-Graded Pics (Included)');
+          if (newCustomBuilderState.addons.reels) {
+            const rCount = newCustomBuilderState.addons.reelsCount || 2;
+            activeItems.push(`📱 Instagram Reels (${rCount} Reel${rCount > 1 ? 's' : ''} • Included)`);
+          }
+          if (newCustomBuilderState.addons.highlight) activeItems.push('🎬 Promo Highlights (Included)');
+          if (newCustomBuilderState.addons.timeline) activeItems.push('🎞️ Full Documentary Timeline (Included)');
+          if (newCustomBuilderState.addons.album1) activeItems.push('📖 1 Luxury Album (+PKR 20k)');
+          if (newCustomBuilderState.addons.album2) activeItems.push('📚 2 Luxury Albums (+PKR 35k)');
+          if (newCustomBuilderState.addons.rawfootage) activeItems.push('💾 Master RAW Footage (Included)');
+
+          if (activeItems.length > 0) {
+            sumAddonsContainer.innerHTML = activeItems.map(item => `<span class="sum-addon-pill">${item}</span>`).join('');
           } else {
-            sumAddonsContainer.innerHTML = '<span style="font-family: var(--font-sans); font-size: 12px; color: var(--text-secondary); font-style: italic;">No extra add-ons selected</span>';
+            sumAddonsContainer.innerHTML = '<span style="font-family: var(--font-sans); font-size: 12px; color: var(--text-secondary); font-style: italic;">No extra deliverables selected</span>';
           }
         }
       }
@@ -9655,26 +11360,34 @@ Whatsapp or Call : +92 347 2790275</div>
             const parsed = new Date(d.date);
             dateStr = !isNaN(parsed.getTime()) ? parsed.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }) : d.date;
           }
-          daysBreakdown += `• *Day ${idx + 1} (${name})* [${dateStr}]: ${d.photographers} Photographer(s) + ${d.videographers} Videographer(s)\n`;
+
+          let photoStr = `${d.photographers} Photographer(s)`;
+          let videoStr = `${d.videographers} Cinematographer(s)`;
+
+          const dayExtras = [];
+          if (d.drone) dayExtras.push('🚁 Drone Aerial (+PKR 15,000)');
+          if (d.gimbal) dayExtras.push('🎥 3-Axis Gimbal Stabilizer (+PKR 20,000)');
+          const extraStr = dayExtras.length > 0 ? `\n    └ Inclusions: ${dayExtras.join(', ')}` : '';
+
+          daysBreakdown += `• *Day ${idx + 1} (${name})* [${dateStr}]:\n    ${photoStr} + ${videoStr}${extraStr}\n`;
         });
 
-        // Build active add-ons list cleanly
+        // Build active post-production & deliverables list cleanly
+        const reelsCount = newCustomBuilderState.addons.reelsCount || 2;
         const addonLabels = {
-          drone: 'Pro 4K Drone Aerial Coverage (+PKR 15,000)',
+          softpics: 'Color-Graded Pics (Included in Package)',
+          reels: `Instagram Reels (${reelsCount} Reel${reelsCount > 1 ? 's' : ''}) (Included in Package)`,
+          highlight: 'Promo Highlights (Cinematic Movie) (Included in Package)',
+          timeline: 'Full Documentary Timeline (Included in Package)',
           album1: '1 Luxury Hardcopy Printed Album (+PKR 20,000)',
           album2: '2 Luxury Hardcopy Printed Albums (+PKR 35,000)',
-          gimbal: '3-Axis Gimbal Stabilization Rig (+PKR 20,000)',
-          extracamera: 'Extra Camera (Candid/Second Shooter) (+PKR 15,000)',
-          highlight: 'Cinematic Highlight Promo Movie (Included)',
-          reels: 'Optimized Instagram Reels 9:16 (Included)',
-          timeline: 'Full Documentary Raw Footage (Included)',
-          softpics: 'Color-Graded Soft Pics Drive Link (Included)'
+          rawfootage: 'Master RAW Footage (Included in Package)'
         };
 
-        const activeAddonList = Object.keys(newCustomBuilderState.addons)
+        const activeAddonList = ['softpics', 'reels', 'highlight', 'timeline', 'album1', 'album2', 'rawfootage']
           .filter(k => newCustomBuilderState.addons[k])
-          .map(k => `• ${addonLabels[k] || k}`);
-        const addonsFormatted = activeAddonList.length > 0 ? activeAddonList.join('\n') : '• None selected';
+          .map(k => `• ${addonLabels[k]}`);
+        const addonsFormatted = activeAddonList.length > 0 ? activeAddonList.join('\n') : '• Standard package editing inclusions';
 
         let promoLine = '';
         if (newCustomBuilderState.appliedCoupon.discountPercent > 0) {
@@ -9694,7 +11407,7 @@ My name is *${clientName}*. I visited your website (Films By Hiimii) and created
 *EVENT SCHEDULE & CREW:*
 ${daysBreakdown.trim()}
 
-*SELECTED ADD-ONS & DELIVERABLES:*
+*POST-PRODUCTION, EDITS & DELIVERABLES:*
 ${addonsFormatted}
 
 *VENUE & SPECIAL INSTRUCTIONS:*
@@ -10784,6 +12497,97 @@ Warm regards,
         }
       }
       
+      // --- UNIVERSAL MOBILE COLLAPSIBLE TEXT (READ THIS) CONTROLLER ---
+      function toggleMobileText(btn) {
+        if (!btn) return;
+        const targetId = btn.getAttribute('data-target');
+        let targetEl = targetId ? document.getElementById(targetId) : null;
+        if (!targetEl) {
+          targetEl = btn.previousElementSibling;
+        }
+        if (!targetEl) return;
+
+        const isCollapsed = targetEl.classList.contains('is-collapsed');
+        if (isCollapsed) {
+          targetEl.classList.remove('is-collapsed');
+          btn.innerHTML = 'Show less ▴';
+          btn.setAttribute('aria-expanded', 'true');
+          btn.classList.add('is-expanded');
+          if (window.Tracker) {
+            window.Tracker.track('mobile_text_expanded', { id: targetId || targetEl.className });
+          }
+        } else {
+          targetEl.classList.add('is-collapsed');
+          btn.innerHTML = '... Read this ▾';
+          btn.setAttribute('aria-expanded', 'false');
+          btn.classList.remove('is-expanded');
+          if (window.Tracker) {
+            window.Tracker.track('mobile_text_collapsed', { id: targetId || targetEl.className });
+          }
+        }
+      }
+
+      function initMobileCollapsibleTexts() {
+        // Find any paragraphs or subtitles with long text across the entire site
+        const candidates = document.querySelectorAll('.section-subtitle, .about-bio p, .mobile-text-collapsible');
+
+        candidates.forEach((el, index) => {
+          // If this element already has a read-this-btn right after it or is already initialized, skip
+          if (el.dataset.collapsibleInit === 'true') return;
+          if (el.nextElementSibling && el.nextElementSibling.classList && el.nextElementSibling.classList.contains('read-this-btn')) {
+            el.dataset.collapsibleInit = 'true';
+            return;
+          }
+
+          // If parent is already a mobile-text-collapsible, skip children
+          if (el.parentElement && el.parentElement.classList && el.parentElement.classList.contains('mobile-text-collapsible')) {
+            return;
+          }
+
+          const text = (el.innerText || el.textContent || '').trim();
+          // Target big descriptions (length > 75 characters)
+          if (text.length < 75) return;
+
+          el.dataset.collapsibleInit = 'true';
+          el.classList.add('mobile-text-collapsible');
+          el.classList.add('is-collapsed');
+
+          if (!el.id) {
+            el.id = 'collapsible-text-' + index;
+          }
+
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'read-this-btn';
+          btn.setAttribute('data-target', el.id);
+          btn.setAttribute('aria-expanded', 'false');
+          btn.innerHTML = '... Read this ▾';
+
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleMobileText(btn);
+          });
+
+          // Also allow tapping directly on the collapsed text to expand
+          el.addEventListener('click', function() {
+            if (window.innerWidth <= 768 && el.classList.contains('is-collapsed')) {
+              toggleMobileText(btn);
+            }
+          });
+
+          el.insertAdjacentElement('afterend', btn);
+        });
+      }
+
+      // Initialize on DOM ready and load
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMobileCollapsibleTexts);
+      } else {
+        initMobileCollapsibleTexts();
+      }
+      window.addEventListener('load', initMobileCollapsibleTexts);
+
       setupBookListeners();
     </script>
 
