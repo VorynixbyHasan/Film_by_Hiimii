@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://filmsbyhiimii.com/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://i.ibb.co/CpkS4XmM/609744356-18559504297053934-1853688745243861486-n.jpg</image:loc>
+      <image:title>Films By Hiimii - Luxury Wedding Cinematography Pakistan</image:title>
+      <image:caption>Hamza Shaikh Films By Hiimii luxury wedding coverage in Lahore, Islamabad, and Karachi</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://filmsbyhiimii.com/#about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://filmsbyhiimii.com/#portfolio</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://filmsbyhiimii.com/#packages</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://filmsbyhiimii.com/#custom-builder</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://filmsbyhiimii.com/#testimonials</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://filmsbyhiimii.com/#faq</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://filmsbyhiimii.com/#contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
