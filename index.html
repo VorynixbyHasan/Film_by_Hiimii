@@ -2534,6 +2534,173 @@
         opacity: 0.8;
       }
 
+      /* --- PACKAGE COUPON SECTION (SIMPLE 20% DISCOUNT) --- */
+      .pkg-coupon-section {
+        margin: 12px 0 16px 0;
+        padding: 10px 12px;
+        background: rgba(201, 168, 76, 0.05);
+        border: 1px dashed rgba(201, 168, 76, 0.35);
+        border-radius: 12px;
+        transition: all 0.3s ease;
+        text-align: left;
+      }
+
+      body.dark-theme .pkg-coupon-section {
+        background: rgba(201, 168, 76, 0.07);
+        border-color: rgba(201, 168, 76, 0.3);
+      }
+
+      .pkg-coupon-pill-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+
+      .pkg-coupon-hint {
+        font-family: var(--font-sans);
+        font-size: 11px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--text-secondary);
+      }
+
+      .pkg-coupon-code-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(201, 168, 76, 0.12);
+        border: 1px solid rgba(201, 168, 76, 0.4);
+        color: var(--accent-gold);
+        border-radius: 20px;
+        padding: 3px 10px;
+        font-family: var(--font-sans);
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .pkg-coupon-code-badge:hover {
+        background: var(--accent-gold);
+        color: #FFFFFF;
+        transform: translateY(-1px);
+      }
+
+      .pkg-coupon-code-badge:hover .pkg-coupon-tag-off {
+        background: #FFFFFF;
+        color: #10B981;
+      }
+
+      .pkg-coupon-code-text {
+        font-weight: 700;
+        font-size: 11.5px;
+        letter-spacing: 0.06em;
+      }
+
+      .pkg-coupon-tag-off {
+        background: #10B981;
+        color: #FFFFFF;
+        font-size: 9px;
+        font-weight: 700;
+        padding: 1px 6px;
+        border-radius: 10px;
+        letter-spacing: 0.04em;
+        transition: all 0.2s ease;
+      }
+
+      .pkg-coupon-form {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+      }
+
+      .pkg-coupon-input {
+        flex: 1;
+        min-width: 0;
+        padding: 7px 10px;
+        font-size: 12px;
+        font-family: var(--font-sans);
+        border-radius: 8px;
+        border: 1px solid rgba(201, 168, 76, 0.3);
+        background: var(--bg-primary);
+        color: var(--text-primary);
+        outline: none;
+        text-transform: uppercase;
+      }
+
+      .pkg-coupon-input:focus {
+        border-color: var(--accent-gold);
+        box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.18);
+      }
+
+      .pkg-coupon-apply-btn {
+        padding: 7px 12px;
+        font-size: 11px;
+        font-weight: 600;
+        font-family: var(--font-sans);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        background: var(--accent-gold);
+        color: #FFFFFF;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: all 0.2s ease;
+      }
+
+      .pkg-coupon-apply-btn:hover {
+        background: var(--accent-gold-hover);
+      }
+
+      .pkg-coupon-success {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 6px 10px;
+        background: rgba(16, 185, 129, 0.12);
+        border: 1px solid rgba(16, 185, 129, 0.3);
+        border-radius: 8px;
+        color: #10B981;
+        font-family: var(--font-sans);
+        font-size: 11px;
+        font-weight: 600;
+      }
+
+      .pkg-coupon-remove-btn {
+        background: transparent;
+        border: none;
+        color: #8E8E93;
+        cursor: pointer;
+        font-size: 15px;
+        line-height: 1;
+        padding: 2px 6px;
+        border-radius: 4px;
+        transition: color 0.2s ease;
+      }
+
+      .pkg-coupon-remove-btn:hover {
+        color: #EF4444;
+      }
+
+      .pkg-coupon-error {
+        margin-top: 6px;
+        font-size: 11px;
+        color: #EF4444;
+        font-family: var(--font-sans);
+      }
+
+      .pre-coupon-price {
+        text-decoration: line-through;
+        opacity: 0.6;
+        font-size: 14px;
+        margin-right: 6px;
+        font-weight: 500;
+        color: var(--text-secondary);
+      }
+
       .book-btn-styled {
         display: inline-block;
         box-sizing: border-box;
@@ -7247,6 +7414,22 @@
           padding: 2px 0 !important;
         }
 
+        .pkg-coupon-section {
+          margin: 8px 0 10px 0 !important;
+          padding: 8px 10px !important;
+          border-radius: 10px !important;
+        }
+
+        .pkg-coupon-input {
+          padding: 5px 8px !important;
+          font-size: 11px !important;
+        }
+
+        .pkg-coupon-apply-btn {
+          padding: 5px 10px !important;
+          font-size: 10px !important;
+        }
+
         .packages-arrow-btn {
           display: flex !important;
           width: 34px !important;
@@ -9386,6 +9569,26 @@ Whatsapp or Call : +92 347 2790275</div>
               <span class="show-all-link" onclick="toggleDeliverables(this)" data-expanded="false">Show all &rarr;</span>
             </ul>
 
+            <!-- Simple Package Coupon Section -->
+            <div class="pkg-coupon-section" data-pkg-name="1 Day Package">
+              <div class="pkg-coupon-pill-wrap">
+                <span class="pkg-coupon-hint">Coupon:</span>
+                <button type="button" class="pkg-coupon-code-badge" onclick="applyPkgQuickCoupon(this, 'FBH20')" title="Click to apply 20% discount code">
+                  <span class="pkg-coupon-code-text">FBH20</span>
+                  <span class="pkg-coupon-tag-off">20% OFF</span>
+                </button>
+              </div>
+              <div class="pkg-coupon-form">
+                <input type="text" class="pkg-coupon-input" placeholder="Enter coupon code" autocomplete="off" onkeydown="if(event.key==='Enter'){event.preventDefault();handlePkgCouponSubmit(this);}" />
+                <button type="button" class="pkg-coupon-apply-btn" onclick="handlePkgCouponSubmit(this)">Apply</button>
+              </div>
+              <div class="pkg-coupon-success" style="display: none;">
+                <span class="pkg-coupon-success-badge">✓ <strong>FBH20</strong> (20% OFF) Applied</span>
+                <button type="button" class="pkg-coupon-remove-btn" onclick="handlePkgCouponRemove(this)" title="Remove coupon">&times;</button>
+              </div>
+              <div class="pkg-coupon-error" style="display: none;"></div>
+            </div>
+
             <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%201%20Day%20Package%20(Standard%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="standard">Book This Package &rarr;</a>
             <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%201%20Day%20Package%20(Premium%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="premium">Book This Package &rarr;</a>
           </div>
@@ -9441,6 +9644,26 @@ Whatsapp or Call : +92 347 2790275</div>
               <li class="bullet-item extra-item" style="display: none;"><span class="checkmark">✓</span> Slow Motion Shorts</li>
               <span class="show-all-link" onclick="toggleDeliverables(this)" data-expanded="false">Show all &rarr;</span>
             </ul>
+
+            <!-- Simple Package Coupon Section -->
+            <div class="pkg-coupon-section" data-pkg-name="2 Day Package">
+              <div class="pkg-coupon-pill-wrap">
+                <span class="pkg-coupon-hint">Coupon:</span>
+                <button type="button" class="pkg-coupon-code-badge" onclick="applyPkgQuickCoupon(this, 'FBH20')" title="Click to apply 20% discount code">
+                  <span class="pkg-coupon-code-text">FBH20</span>
+                  <span class="pkg-coupon-tag-off">20% OFF</span>
+                </button>
+              </div>
+              <div class="pkg-coupon-form">
+                <input type="text" class="pkg-coupon-input" placeholder="Enter coupon code" autocomplete="off" onkeydown="if(event.key==='Enter'){event.preventDefault();handlePkgCouponSubmit(this);}" />
+                <button type="button" class="pkg-coupon-apply-btn" onclick="handlePkgCouponSubmit(this)">Apply</button>
+              </div>
+              <div class="pkg-coupon-success" style="display: none;">
+                <span class="pkg-coupon-success-badge">✓ <strong>FBH20</strong> (20% OFF) Applied</span>
+                <button type="button" class="pkg-coupon-remove-btn" onclick="handlePkgCouponRemove(this)" title="Remove coupon">&times;</button>
+              </div>
+              <div class="pkg-coupon-error" style="display: none;"></div>
+            </div>
 
             <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%202%20Day%20Package%20(Standard%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="standard">Book This Package &rarr;</a>
             <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%202%20Day%20Package%20(Premium%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="premium">Book This Package &rarr;</a>
@@ -9504,6 +9727,26 @@ Whatsapp or Call : +92 347 2790275</div>
               <span class="show-all-link" onclick="toggleDeliverables(this)" data-expanded="false">Show all &rarr;</span>
             </ul>
 
+            <!-- Simple Package Coupon Section -->
+            <div class="pkg-coupon-section" data-pkg-name="Full Wedding Package">
+              <div class="pkg-coupon-pill-wrap">
+                <span class="pkg-coupon-hint">Coupon:</span>
+                <button type="button" class="pkg-coupon-code-badge" onclick="applyPkgQuickCoupon(this, 'FBH20')" title="Click to apply 20% discount code">
+                  <span class="pkg-coupon-code-text">FBH20</span>
+                  <span class="pkg-coupon-tag-off">20% OFF</span>
+                </button>
+              </div>
+              <div class="pkg-coupon-form">
+                <input type="text" class="pkg-coupon-input" placeholder="Enter coupon code" autocomplete="off" onkeydown="if(event.key==='Enter'){event.preventDefault();handlePkgCouponSubmit(this);}" />
+                <button type="button" class="pkg-coupon-apply-btn" onclick="handlePkgCouponSubmit(this)">Apply</button>
+              </div>
+              <div class="pkg-coupon-success" style="display: none;">
+                <span class="pkg-coupon-success-badge">✓ <strong>FBH20</strong> (20% OFF) Applied</span>
+                <button type="button" class="pkg-coupon-remove-btn" onclick="handlePkgCouponRemove(this)" title="Remove coupon">&times;</button>
+              </div>
+              <div class="pkg-coupon-error" style="display: none;"></div>
+            </div>
+
             <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%20Full%20Wedding%20Package%20(Standard%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="standard">Book This Package &rarr;</a>
             <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%20Full%20Wedding%20Package%20(Premium%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="premium">Book This Package &rarr;</a>
           </div>
@@ -9562,6 +9805,26 @@ Whatsapp or Call : +92 347 2790275</div>
               <li class="bullet-item extra-item" style="display: none;"><span class="checkmark">✓</span> Slow Motion Shorts</li>
               <span class="show-all-link" onclick="toggleDeliverables(this)" data-expanded="false">Show all &rarr;</span>
             </ul>
+
+            <!-- Simple Package Coupon Section -->
+            <div class="pkg-coupon-section" data-pkg-name="3 Day Package">
+              <div class="pkg-coupon-pill-wrap">
+                <span class="pkg-coupon-hint">Coupon:</span>
+                <button type="button" class="pkg-coupon-code-badge" onclick="applyPkgQuickCoupon(this, 'FBH20')" title="Click to apply 20% discount code">
+                  <span class="pkg-coupon-code-text">FBH20</span>
+                  <span class="pkg-coupon-tag-off">20% OFF</span>
+                </button>
+              </div>
+              <div class="pkg-coupon-form">
+                <input type="text" class="pkg-coupon-input" placeholder="Enter coupon code" autocomplete="off" onkeydown="if(event.key==='Enter'){event.preventDefault();handlePkgCouponSubmit(this);}" />
+                <button type="button" class="pkg-coupon-apply-btn" onclick="handlePkgCouponSubmit(this)">Apply</button>
+              </div>
+              <div class="pkg-coupon-success" style="display: none;">
+                <span class="pkg-coupon-success-badge">✓ <strong>FBH20</strong> (20% OFF) Applied</span>
+                <button type="button" class="pkg-coupon-remove-btn" onclick="handlePkgCouponRemove(this)" title="Remove coupon">&times;</button>
+              </div>
+              <div class="pkg-coupon-error" style="display: none;"></div>
+            </div>
 
             <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%203%20Day%20Package%20(Standard%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="standard">Book This Package &rarr;</a>
             <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%203%20Day%20Package%20(Premium%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="premium">Book This Package &rarr;</a>
@@ -9623,6 +9886,26 @@ Whatsapp or Call : +92 347 2790275</div>
               <span class="show-all-link" onclick="toggleDeliverables(this)" data-expanded="false">Show all &rarr;</span>
             </ul>
 
+            <!-- Simple Package Coupon Section -->
+            <div class="pkg-coupon-section" data-pkg-name="4 Day Package">
+              <div class="pkg-coupon-pill-wrap">
+                <span class="pkg-coupon-hint">Coupon:</span>
+                <button type="button" class="pkg-coupon-code-badge" onclick="applyPkgQuickCoupon(this, 'FBH20')" title="Click to apply 20% discount code">
+                  <span class="pkg-coupon-code-text">FBH20</span>
+                  <span class="pkg-coupon-tag-off">20% OFF</span>
+                </button>
+              </div>
+              <div class="pkg-coupon-form">
+                <input type="text" class="pkg-coupon-input" placeholder="Enter coupon code" autocomplete="off" onkeydown="if(event.key==='Enter'){event.preventDefault();handlePkgCouponSubmit(this);}" />
+                <button type="button" class="pkg-coupon-apply-btn" onclick="handlePkgCouponSubmit(this)">Apply</button>
+              </div>
+              <div class="pkg-coupon-success" style="display: none;">
+                <span class="pkg-coupon-success-badge">✓ <strong>FBH20</strong> (20% OFF) Applied</span>
+                <button type="button" class="pkg-coupon-remove-btn" onclick="handlePkgCouponRemove(this)" title="Remove coupon">&times;</button>
+              </div>
+              <div class="pkg-coupon-error" style="display: none;"></div>
+            </div>
+
             <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%204%20Day%20Package%20(Standard%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="standard">Book This Package &rarr;</a>
             <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%204%20Day%20Package%20(Premium%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="premium">Book This Package &rarr;</a>
           </div>
@@ -9676,6 +9959,26 @@ Whatsapp or Call : +92 347 2790275</div>
               <li class="bullet-item extra-item" style="display: none;"><span class="checkmark">✓</span> Slow Motion Shorts</li>
               <span class="show-all-link" onclick="toggleDeliverables(this)" data-expanded="false">Show all &rarr;</span>
             </ul>
+
+            <!-- Simple Package Coupon Section -->
+            <div class="pkg-coupon-section" data-pkg-name="Birthday Package">
+              <div class="pkg-coupon-pill-wrap">
+                <span class="pkg-coupon-hint">Coupon:</span>
+                <button type="button" class="pkg-coupon-code-badge" onclick="applyPkgQuickCoupon(this, 'FBH20')" title="Click to apply 20% discount code">
+                  <span class="pkg-coupon-code-text">FBH20</span>
+                  <span class="pkg-coupon-tag-off">20% OFF</span>
+                </button>
+              </div>
+              <div class="pkg-coupon-form">
+                <input type="text" class="pkg-coupon-input" placeholder="Enter coupon code" autocomplete="off" onkeydown="if(event.key==='Enter'){event.preventDefault();handlePkgCouponSubmit(this);}" />
+                <button type="button" class="pkg-coupon-apply-btn" onclick="handlePkgCouponSubmit(this)">Apply</button>
+              </div>
+              <div class="pkg-coupon-success" style="display: none;">
+                <span class="pkg-coupon-success-badge">✓ <strong>FBH20</strong> (20% OFF) Applied</span>
+                <button type="button" class="pkg-coupon-remove-btn" onclick="handlePkgCouponRemove(this)" title="Remove coupon">&times;</button>
+              </div>
+              <div class="pkg-coupon-error" style="display: none;"></div>
+            </div>
 
             <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%20Birthday%20Package%20(Standard%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="standard">Book This Package &rarr;</a>
             <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%20Birthday%20Package%20(Premium%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="premium">Book This Package &rarr;</a>
@@ -9731,6 +10034,26 @@ Whatsapp or Call : +92 347 2790275</div>
               <li class="bullet-item extra-item" style="display: none;"><span class="checkmark">✓</span> Official High-End Event Aftermovie (3-5 mins)</li>
               <span class="show-all-link" onclick="toggleDeliverables(this)" data-expanded="false">Show all &rarr;</span>
             </ul>
+
+            <!-- Simple Package Coupon Section -->
+            <div class="pkg-coupon-section" data-pkg-name="Campus & Institutional Events">
+              <div class="pkg-coupon-pill-wrap">
+                <span class="pkg-coupon-hint">Coupon:</span>
+                <button type="button" class="pkg-coupon-code-badge" onclick="applyPkgQuickCoupon(this, 'FBH20')" title="Click to apply 20% discount code">
+                  <span class="pkg-coupon-code-text">FBH20</span>
+                  <span class="pkg-coupon-tag-off">20% OFF</span>
+                </button>
+              </div>
+              <div class="pkg-coupon-form">
+                <input type="text" class="pkg-coupon-input" placeholder="Enter coupon code" autocomplete="off" onkeydown="if(event.key==='Enter'){event.preventDefault();handlePkgCouponSubmit(this);}" />
+                <button type="button" class="pkg-coupon-apply-btn" onclick="handlePkgCouponSubmit(this)">Apply</button>
+              </div>
+              <div class="pkg-coupon-success" style="display: none;">
+                <span class="pkg-coupon-success-badge">✓ <strong>FBH20</strong> (20% OFF) Applied</span>
+                <button type="button" class="pkg-coupon-remove-btn" onclick="handlePkgCouponRemove(this)" title="Remove coupon">&times;</button>
+              </div>
+              <div class="pkg-coupon-error" style="display: none;"></div>
+            </div>
 
             <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%20Campus%20%26%20Institutional%20Events%20Package%20(Standard%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="standard">Book This Package &rarr;</a>
             <a href="https://wa.me/923163870862?text=Assalam-o-Alaikum%20Hamza%2C%20I%20am%20interested%20in%20booking%20the%20Campus%20%26%20Institutional%20Events%20Package%20(Premium%20Tier)%20with%20Films%20By%20Hiimii.%20Please%20let%20me%20know%20your%20availability%20and%20booking%20details." target="_blank" class="tier-content book-btn-styled" data-tier="premium">Book This Package &rarr;</a>
@@ -12008,7 +12331,182 @@ Warm regards,
         renderDaysEventsCrewUI();
         renderDynamicDatesUI();
         updateNewBuilderSummary();
+        initPackagePricingData();
       }, 100);
+
+      // --- PACKAGES COUPON SYSTEM (20% DISCOUNT) ---
+      let packageCouponState = {
+        applied: false,
+        code: '',
+        discountPercent: 20
+      };
+
+      function initPackagePricingData() {
+        const cards = document.querySelectorAll('.package-card:not(.teaser-card)');
+        cards.forEach(card => {
+          const pricingBlocks = card.querySelectorAll('.pricing-block');
+          pricingBlocks.forEach(block => {
+            if (!block.getAttribute('data-base-price')) {
+              const priceSpan = block.querySelector('.discounted-price-new');
+              const origSpan = block.querySelector('.original-price-new');
+              const savingsSpan = block.querySelector('.savings-badge-new');
+              
+              if (priceSpan) {
+                const baseVal = parseInt(priceSpan.innerText.replace(/[^0-9]/g, '')) || 0;
+                block.setAttribute('data-base-price', baseVal);
+              }
+              if (origSpan) {
+                const origVal = parseInt(origSpan.innerText.replace(/[^0-9]/g, '')) || 0;
+                block.setAttribute('data-orig-price', origVal);
+              }
+              if (savingsSpan) {
+                block.setAttribute('data-base-savings', savingsSpan.innerText);
+              }
+            }
+          });
+        });
+      }
+
+      function renderAllPackagesPricing() {
+        initPackagePricingData();
+        const cards = document.querySelectorAll('.package-card:not(.teaser-card)');
+        
+        cards.forEach(card => {
+          const pricingBlocks = card.querySelectorAll('.pricing-block');
+          pricingBlocks.forEach(block => {
+            const basePrice = parseInt(block.getAttribute('data-base-price')) || 0;
+            const origPrice = parseInt(block.getAttribute('data-orig-price')) || 0;
+            const baseSavingsText = block.getAttribute('data-base-savings') || '';
+            const priceSpan = block.querySelector('.discounted-price-new');
+            const savingsSpan = block.querySelector('.savings-badge-new');
+            const priceRow = block.querySelector('.discounted-price-row');
+            
+            if (!priceSpan || basePrice === 0) return;
+
+            // Remove any existing pre-coupon indicator
+            const existingPre = priceRow ? priceRow.querySelector('.pre-coupon-price') : null;
+            if (existingPre) existingPre.remove();
+
+            if (packageCouponState.applied) {
+              const discountedPrice = Math.round(basePrice * 0.8);
+              priceSpan.innerText = discountedPrice.toLocaleString('en-US');
+              
+              if (priceRow) {
+                const preSpan = document.createElement('span');
+                preSpan.className = 'pre-coupon-price';
+                preSpan.innerText = 'PKR ' + basePrice.toLocaleString('en-US');
+                priceRow.insertBefore(preSpan, priceRow.firstChild);
+              }
+
+              if (savingsSpan) {
+                const totalSavings = origPrice > 0 ? (origPrice - discountedPrice) : (basePrice - discountedPrice);
+                savingsSpan.innerHTML = `You save PKR ${totalSavings.toLocaleString('en-US')} <span style="color:#10B981;font-weight:700;">(20% OFF Applied)</span>`;
+              }
+            } else {
+              priceSpan.innerText = basePrice.toLocaleString('en-US');
+              if (savingsSpan) {
+                savingsSpan.innerText = baseSavingsText;
+              }
+            }
+          });
+
+          // Sync coupon section UI in this card
+          const couponSection = card.querySelector('.pkg-coupon-section');
+          if (couponSection) {
+            const formEl = couponSection.querySelector('.pkg-coupon-form');
+            const successEl = couponSection.querySelector('.pkg-coupon-success');
+            const successBadge = couponSection.querySelector('.pkg-coupon-success-badge');
+            const inputEl = couponSection.querySelector('.pkg-coupon-input');
+            const errorEl = couponSection.querySelector('.pkg-coupon-error');
+
+            if (errorEl) errorEl.style.display = 'none';
+
+            if (packageCouponState.applied) {
+              if (formEl) formEl.style.display = 'none';
+              if (successEl) successEl.style.display = 'flex';
+              if (successBadge) {
+                successBadge.innerHTML = `✓ <strong>${packageCouponState.code}</strong> (20% OFF) Applied`;
+              }
+            } else {
+              if (formEl) formEl.style.display = 'flex';
+              if (successEl) successEl.style.display = 'none';
+              if (inputEl) inputEl.value = '';
+            }
+          }
+        });
+      }
+
+      function applyPkgQuickCoupon(btn, code) {
+        const targetCode = code || 'FBH20';
+        applyPackageCouponCode(targetCode);
+      }
+
+      function handlePkgCouponSubmit(btnOrInput) {
+        const section = btnOrInput.closest('.pkg-coupon-section');
+        const input = section ? section.querySelector('.pkg-coupon-input') : null;
+        const errorEl = section ? section.querySelector('.pkg-coupon-error') : null;
+        const val = input ? input.value.trim() : '';
+
+        if (!val) {
+          if (errorEl) {
+            errorEl.style.display = 'block';
+            errorEl.innerText = 'Please enter a coupon code (e.g. FBH20).';
+          }
+          return;
+        }
+
+        const success = applyPackageCouponCode(val);
+        if (!success) {
+          if (errorEl) {
+            errorEl.style.display = 'block';
+            errorEl.innerHTML = 'Invalid code. Use <strong>FBH20</strong> for 20% OFF.';
+          }
+        } else {
+          if (errorEl) errorEl.style.display = 'none';
+        }
+      }
+
+      function handlePkgCouponRemove(btn) {
+        packageCouponState.applied = false;
+        packageCouponState.code = '';
+        renderAllPackagesPricing();
+        showPkgCouponToast('Coupon removed. Standard package rates restored.');
+      }
+
+      function applyPackageCouponCode(rawCode) {
+        const norm = (rawCode || '').toUpperCase().trim().replace(/[\s-]+/g, '');
+        // Valid 20% discount coupon codes: FBH20, HIIMII20, FBH2627, SAVE20
+        if (norm === 'FBH20' || norm === 'HIIMII20' || norm === 'FBH2627' || norm === 'SAVE20') {
+          packageCouponState.applied = true;
+          packageCouponState.code = (norm === 'FBH2627' ? 'FBH26-27' : norm);
+          renderAllPackagesPricing();
+          showPkgCouponToast(`✨ Promo code ${packageCouponState.code} applied! 20% discount unlocked on all packages.`);
+          return true;
+        }
+        return false;
+      }
+
+      function showPkgCouponToast(message) {
+        let toast = document.getElementById('pkg-coupon-toast');
+        if (!toast) {
+          toast = document.createElement('div');
+          toast.id = 'pkg-coupon-toast';
+          toast.className = 'booking-toast';
+          toast.style.zIndex = '100002';
+          document.body.appendChild(toast);
+        }
+        toast.innerHTML = `
+          <span style="font-size: 20px;">🎟️</span>
+          <div>
+            <strong style="display: block; font-weight: 600; font-size: 13px; color: var(--accent-gold);">Package Coupon Updated</strong>
+            <span style="color: var(--text-secondary); font-size: 11px;">${message}</span>
+          </div>
+        `;
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 3200);
+      }
 
       // 5. Packages Toggling & Deliverables Expanding logic
       function selectTier(button, tier) {
